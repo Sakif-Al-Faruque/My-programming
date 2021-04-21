@@ -1,0 +1,13 @@
+# number of parameter as argument while calling a function is not checked, if there are more argument than parameter when the function is defined.
+# arguments.length tells us the number of argument passed in function calling.
+# arguments.callee provides the whole description of the function
+# when we used too many function arguments, it's better to use arguments object
+# when we pass any value of a parameter, we have to use default parameter. we have to use it in last parameter otherwise the function will automatically make the last parameter value undefined.
+# '...' is called rest operator in rest parameter concept
+# we can take any name for rest parameter
+# we can access individual element of rest paramter by using array indexing method
+# rest parameter is an actual array and arguments object is not an actual array
+# In arrow function, hoisting is not supported
+# If we use one parameter on arrow function, there is no need to use parenthesis.
+# If we use one statement on definition, we can write it on the same line without curly braces.
+# If we use one paramter and want to return the parameter, then we have to just write that paramter after the fat operator and that will work as return statement.

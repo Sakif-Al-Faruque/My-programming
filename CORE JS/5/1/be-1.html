@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic exercise-1</title>
+</head>
+<body>
+    <script>
+        var today = new Date();
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        var toDay = days[today.getDay()];
+        var hours = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+        var prepend = (hours>12) ? 'PM' : 'AM';
+
+        hours = (hours > 12) ? (hours - 12) : hours;
+
+        if(hours === 0 && prepend === 'PM'){
+            if(minutes === 0 && seconds === 0){
+                prepend = 'Noon';
+                hours = 0;
+            }else{
+                prepend = 'PM';
+                hours = 0;
+            }
+        }
+        if(hours === 0 && prepend === 'AM'){
+            if(minutes === 0 && seconds === 0){
+                prepend = 'Midnight';
+                hours = 0;
+            }else{
+                prepend = 'AM';
+                hours = 0;
+            }
+        }
+        document.write("Today is: "+toDay+"<br>");
+        document.write("Current time is: "+hours+prepend+" : "+minutes+" : "+seconds);
+    
+    </script>
+</body>
+</html>

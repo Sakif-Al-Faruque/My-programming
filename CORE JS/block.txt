@@ -1,0 +1,3 @@
+# the variable which is declare with 'var' can be access from outside the scope
+# the variable which is declare with 'let/const' can not be access from outside the scope
+

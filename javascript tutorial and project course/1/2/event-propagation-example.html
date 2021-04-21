@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <h1>Hello, this is heading</h1> -->
+    </div>
+    <button class="btn">Click me</button>
+    <script>
+        const btn = document.querySelector('.btn');
+        const con = document.querySelector('.container');
+
+        btn.addEventListener('click', function(event){
+            const h1 = document.createElement('h1');
+            h1.textContent = 'Hello from heading';
+            h1.classList.add('heading');
+            con.appendChild(h1);
+        }); 
+        con.addEventListener('click', function(event){
+            if(event.target.classList.contains('heading')){
+                event.target.style.color = 'red';
+            }
+        });
+
+    </script>
+</body>
+</html>

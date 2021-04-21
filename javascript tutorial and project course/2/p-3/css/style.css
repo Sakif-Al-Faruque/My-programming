@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+ background-color: burlywood;
+}
+div.cus-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(248, 248, 248, 0.507);
+    height: 400px;
+    width: 600px;
+    padding: 15px 30px 15px 30px;
+}
+/* div.cus-box div span{
+    font-size: 8em;
+    text-align: left;
+} */
+
+div.cus-box div p:nth-child(1){
+    font-weight: 800px;
+    text-align: left;
+}
+div.cus-box div p:nth-child(3){
+    font-weight: 500px;
+    text-align: right;
+}
+

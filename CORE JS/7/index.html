@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+    <script>
+        //string processes
+        //concatenation
+        /* var str1 = 'Hello';
+        var str2 = 'World';
+
+        //var str3 = str1+str2;
+        var str3 = str1.concat(" ", str2);
+        document.write(str3); */
+
+        //template literal or template string and back tick operator
+        //multiline feature
+        /* var str = `Hello 
+        world
+        See
+        you again`;
+        document.write(str); */
+
+        //string interpolation
+        /* var str = `Hello`;
+        function SayFunc(say) {
+            return say;
+        }
+        document.write(`${str} World`+"<br>");
+        document.write(`${ 5 + 2} World`+"<br>");
+        document.write(`${ SayFunc("Hello")} World`+"<br>"); */
+
+        //tagged template
+        /* const ticket = 10;
+        const buyTicket = 3;
+        const ticketPrice = 200;
+        var discountPrice = 50;
+
+        function myFunc(theory, nticket, bticket, tprice, discprice){
+            if(buyTicket<5){
+                discprice = 0;
+            }
+            return `${theory[0]} ${nticket} ${theory[1]} ${tprice} ${theory[2]} ${bticket} ${theory[3]} ${discprice} ${theory[4]}`;
+        }
+
+        var text = myFunc `There are ${ticket} tickets for the movie. Each ticket costs ${ticketPrice} TK. If you buy ${buyTicket}, you have discount ${discountPrice} TK.`;
+
+        document.write(text); */
+
+        //length
+        /* var str = "Sakif Al Faruque";
+        document.write(str.length); */
+
+        //charAt
+        /* var str = "Sakif Al Faruque";
+        document.write(str.charAt(2)); */
+
+        //charCodeAt
+        /* var str = "Sakif Al Faruque";
+        document.write(str.charCodeAt('S')); */
+
+        //toLowerCase and toUpperCase
+        /* var str = "Sakif Al Faruque";
+        document.write(str.toLowerCase());
+        document.write(str.toUpperCase()); */
+
+        //trim
+        /* var str = "     Hello     ";
+        console.log(str.trim()+"<br>");
+        console.log(str); */
+
+        //replace method
+        /* var str = "hello Sakif";
+        document.write(str.replace("Sakif", "World")+"<br>");
+        document.write(str); */
+
+        //split
+        /* var str = "Hello Sakif Al Faruque";
+        document.write(str.split(" ")); */
+
+        //indexOf - accepts two argument
+        /* var str = 'Hello there are a lot of e';
+        var char_position = str.indexOf('a'); //access the whole string
+        var char_position = str.indexOf('e', 15); // access after the 15 index
+        document.write(char_position); */
+
+        //search accepts only one argument
+        /* var str = 'Hello there are a lot of e';
+        var char_position = str.search('a'); //access the whole string
+        document.write(char_position); */
+
+        //slice - accepts negative index
+        /* var str = 'Hello there are a lot of e';
+        var manipulated_str = str.slice(14, 21); //access the whole string
+        var m_str = str.slice(-8, -5);
+        //document.write(str.indexOf('t', 7));
+        document.write(m_str); */
+
+        //substring - doesn't accept negative index
+        /* var str = 'Hello there are a lot of e';
+        var manipulated_str = str.substring(14, 21); //access the whole string
+        //document.write(str.indexOf('t', 7));
+        document.write(char_position); */
+
+        //substr 
+        /* var str = 'Hello there are a lot of e';
+        var manipulated_str = str.substr(6, 5); //access the whole string
+        //document.write(str);
+        document.write(manipulated_str); */
+
+
+    </script>
+</body>
+</html>

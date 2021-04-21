@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'hello';
+        let currIndex = (str.length-1)/2;
+        let prevIndex = currIndex-1;
+        let nextIndex = currIndex+1;
+
+        console.log(currIndex, prevIndex, nextIndex);
+        let strArr = [];
+        strArr.push(str.charAt(prevIndex));
+        strArr.push(str.charAt(currIndex));
+        strArr.push(str.charAt(nextIndex));
+
+        document.write(strArr.join(''));
+    </script>
+</body>
+</html>

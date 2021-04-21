@@ -1,0 +1,3 @@
+# a variable only have space in javascript memory when it contains data.
+# if we create array with array contructor and pass a single numeric value on array contructor. like, var arr_name = new Array(single_numeric_value); then the single numeric value will be the length of that array.
+# if we keep a array into another variable and if we change that variable, then that array will be modified. 

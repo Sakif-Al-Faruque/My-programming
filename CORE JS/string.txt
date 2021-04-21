@@ -1,0 +1,2 @@
+# we can not use double quatation into the double quatation and single quatation into single quatation.
+# string interpolation only works with back tick operator.

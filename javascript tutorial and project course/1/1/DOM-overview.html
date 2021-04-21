@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .colors{
+            background: red;
+        }
+        .texts{
+            font-size: 2rem;
+        }
+        h1{
+            background: blue;
+            color: white;
+        }
+        /* a{
+            display: block;
+            margin-top: 1000px;
+        } */
+        .bg{
+            background: lightgreen;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <h1 id="heading">Lorem ipsum dolor sit.</h1>
+    <p>This is something</p>
+    <button id="btn">Click me</button> -->
+
+    <!-- <h1>Heading-1</h1>
+    <h1 id="h">Heading-2</h1>
+    <ul>
+        <li>list-1</li>
+        <li class="special">list-2</li>
+        <li>list-3</li>
+        <li class="special">list-4</li>
+        <li class="last-item">list-5</li>
+    </ul> -->
+
+    <!-- <ul id="ulist">
+        <li>Orange</li>
+        <li>Mango</li>
+        <li>Lemon</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+    </ul> -->
+
+    <!-- <div class="result">
+        hello
+        <div class="second">
+            second
+            <div class="child">
+                child
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <ul class="result">
+        <li class="first">hello</li>
+        <li class="second">hello</li>
+        <li class="third">hello</li>
+        <li class="fourth">hello</li>
+        <li class="last">hello</li>
+    </ul> -->
+
+    <!-- <h1>
+        hello
+    </h1> -->
+
+    <!-- <ul>
+        <li class="first">first</li>
+        <a href="#"></a>
+        <li></li>
+    </ul> -->
+
+    <!-- <div>this is first element</div>
+    <div>this is second element</div>
+    <div>this is third element</div> -->
+
+    <!-- <div class="result">
+        <h1>Hello</h1>
+    </div> -->
+
+    <!-- <div id="d1">
+        hello
+        <div id="d2">Hello world</div>
+    </div> -->
+
+    <!-- <h1 id="h">Hello</h1>
+    <button id="btn">Click Here</button>
+    <a href="DOM-overview.html#h">click here</a> -->
+    
+    <!-- <input type="text" id="name"> -->
+
+    <!-- <div>first</div>
+    <div>second <strong>nested <strong> more nested</strong></strong></div>
+    <div>third</div> -->
+
+    <div class="container">
+        <ul>
+            <li class="list-item"><a href="#">link</a></li>
+            <li class="list-item"><a href="#">link</a></li>
+            <li class="list-item"><a href="#">link</a></li>
+        </ul>
+    </div>
+
+    <script>
+        //DOM working process
+        /* //element selection
+        var ele = document.getElementById('heading');
+        var p = document.querySelector('p');
+
+        //window object
+        console.log(window);
+
+        //do some affect
+        ele.style.background = 'green';
+        ele.style.color = 'red';
+
+        //some property of an element 
+        const btn = document.getElementById('btn');
+        const node = btn.nodeName;
+        const css = btn.style;
+
+        console.log(btn);
+        console.log(node);
+        console.log(css); */
+
+        //document and window object
+        /* console.dir(document); */
+
+        //getElementsByTagName()
+        /* var headings = document.getElementsByTagName('h1');
+        var lists = document.getElementsByTagName('li');
+        headings[0].style.color = 'green';
+        console.log(lists.length);
+
+        //as we can not use array methods for the nodelist, we have convert it into array
+        var headingItems = [...headings];
+        var listItem = [...lists];
+
+        headingItems.forEach(function(value){
+            console.log(value);
+        });
+
+        listItem.forEach(function(value){
+            value.style.color = 'red';
+        }); */
+
+        //querySelector('css selector')
+        //querySelectorAll('css selector')
+        /* var h = document.querySelector('#h');
+        h.style.color = 'red';
+
+        var specialLists = document.querySelectorAll('.special');
+        specialLists.forEach(function(value){
+            console.log(value);
+            value.style.color = 'blue';
+        }); */
+
+        //child elements
+        /* var ulists = document.querySelector('#ulist');
+        console.log(ulists.childNodes);
+        console.log(ulists.children);
+        console.log(ulists.firstChild);
+        console.log(ulists.lastChild); */
+
+        //parent elements
+        /* const sp = document.querySelector('.child');
+        const spParent = sp.parentElement;
+        console.log(spParent.parentElement);
+        spParent.parentElement.style.color = 'red'; */
+
+        //sibling element
+        /* const sp = document.querySelector('.third');
+        console.log(sp.nextSibling.nextSibling);
+        console.log(sp.previousSibling.previousSibling);
+        sp.previousSibling.previousSibling.style.color = 'red';
+
+        sp.previousElementSibling.style.color = 'green';
+        sp.nextElementSibling.style.color = 'brown'; */
+        
+        //nodeValue & textContent
+        /* const sp = document.querySelector('h1');
+        console.log(sp.childNodes[0].nodeValue);
+        console.log(sp.firstChild.nodeValue);
+        console.log(sp.textContent); */
+
+        //getAttribute and setAttribute
+        /* const sp = document.querySelector('.first');
+        console.log(sp.getAttribute('class'));
+
+        var second = sp.nextElementSibling;
+        second.setAttribute('id', 'link');
+        console.log(second);
+
+        var last = second.nextElementSibling;
+        last.setAttribute('class', 'first');
+        console.log(last);
+
+        const spAl = document.querySelectorAll('.first');
+        spAl.forEach(function(value){
+            value.textContent = 'hello';
+        }); */
+
+        //className & classList
+        /* const d = document.querySelectorAll('div');
+        d[0].className = 'colors texts';
+
+        d[1].classList.add('texts');
+        d[1].classList.add('colors');
+
+        d[1].classList.remove('colors');
+        let checkClassContainer = d[1].classList.contains('colors');
+        console.log(checkClassContainer);
+
+        d[2].classList.add('colors', 'texts'); */
+
+        //createElement, createTextNode, appendChild
+        /* const result = document.createElement('div');
+        result.setAttribute('id', 'result');
+        const heading1 = document.createElement('h1');
+        const text1 = document.createTextNode('This is heading 1');
+
+        heading1.appendChild(text1);
+        result.appendChild(heading1);
+        document.body.appendChild(result);
+        
+        console.log(result); */
+
+        //insertBefore
+        /* const result = document.createElement('div');
+        result.setAttribute('id', 'result');
+        const heading1 = document.createElement('h1');
+        heading1.classList.add('colors');
+        const text1 = document.createTextNode('This is heading 1');
+        const text2 = document.createTextNode('This is heading 2');
+        const heading2 = document.createElement('h2');
+
+        heading1.appendChild(text1);
+        heading2.appendChild(text2);
+        result.appendChild(heading1);
+        result.insertBefore(heading2, heading1); //*****
+        document.body.appendChild(result);
+        
+        console.log(result); */
+
+        //replaceChild
+        /* const result = document.createElement('div');
+        result.setAttribute('id', 'result');
+        const heading1 = document.createElement('h1');
+        heading1.classList.add('colors');
+        const text1 = document.createTextNode('This is heading 1');
+        const text2 = document.createTextNode('This is heading 2');
+        const text3 = document.createTextNode('This is heading 3');
+        const heading2 = document.createElement('h2');
+        const heading3 = document.createElement('h3');
+
+        heading1.appendChild(text1);
+        heading2.appendChild(text2);
+        heading3.appendChild(text3);
+        result.appendChild(heading1);
+        result.insertBefore(heading2, heading1); 
+        result.replaceChild(heading3, heading2); ///*******
+        document.body.appendChild(result);
+        
+        console.log(result); */
+
+        //prepend and innerText
+        /* const result = document.querySelector('.result');
+        const heading2 = document.createElement('h2');
+        heading2.innerText = `This is heading 2`;
+
+        result.prepend(heading2); */
+
+
+        // remove and removeChild
+        /* const rslt = document.querySelector('.result');
+        const heading = rslt.querySelector('h1');
+        //rslt.remove();
+        rslt.removeChild(heading);
+        console.log(rslt); */
+
+
+        //innerText and innerHTML
+        /* const d1 = document.querySelector('#d1');
+        const d2 = document.querySelector('#d2');
+
+        console.log(d1.innerHTML);
+        console.log(d1.textContent);
+        
+        console.log(d2.textContent);
+        console.log(d2.textContent);
+
+        d1.innerHTML = 'Hello people';
+
+        var name = 'Sakif';
+
+        const d = document.createElement('div');
+        d.innerHTML = `Hello I am ${name}`;
+        document.body.appendChild(d);
+
+        const ul = document.createElement('ul');
+        ul.innerHTML = `<li>hehe</li>
+    <li>hehe</li>
+    <li>hehe</li>`;
+    document.body.appendChild(ul); */
+
+        
+    //events
+    // const btn = document.querySelector('#btn');
+    /* btn.addEventListener('click', function(){
+        const h = document.createElement('h1');
+        h.textContent = 'Hello goat';
+        document.body.appendChild(h);
+        h.style.color = 'white';
+        h.style.backgroundColor = 'red';
+    }); */
+
+    //mouse
+    /* btn.addEventListener('mouseup', function(){
+        const h =  document.querySelector('h1');
+        h.style.backgroundColor = 'blue';
+    }); */
+
+    /* btn.addEventListener('mousedown', function(){
+        const h =  document.querySelector('h1');
+        h.style.backgroundColor = 'blue';
+    }); */
+
+    /* btn.addEventListener('mouseenter', function(){
+        const h =  document.querySelector('h1');
+        h.style.backgroundColor = 'blue';
+    });
+    
+    btn.addEventListener('mouseleave', function(){
+        const h =  document.querySelector('h1');
+        h.style.backgroundColor = 'transparent';
+    }); */
+
+    //keys
+    //const inp =  document.getElementById('name');
+    /* inp.addEventListener('keyup', function(){
+        console.log('hello');
+    }); */
+
+    /* inp.addEventListener('keydown', function(){
+        console.log('hello');
+    }); */
+
+    /* inp.addEventListener('keypress', function(){
+        console.log('hello');
+    }); */
+
+    //event object
+    /* const h1 = document.querySelector('#h');
+    const btn = document.querySelector('#btn');
+    const a = document.querySelector('a');
+
+    h1.addEventListener('click', function(event){
+        //console.log(event);
+        //console.log(event.currentTarget);
+        //console.log(event.target);
+        event.currentTarget.classList.add('bg');
+    });
+
+    btn.addEventListener('click', function(event){
+        event.currentTarget.classList.add('bg');
+    });
+
+    function occuredFunc(e){
+        e.preventDefault();
+    }
+    a.addEventListener('click', occuredFunc); */
+
+    //target vs currentTarget
+    /* const d = document.querySelectorAll('div');
+
+    d.forEach(function(div){
+        div.addEventListener('click', function(event){
+            //event.currentTarget.style.color = 'red';
+            //console.log(event.currentTarget);
+
+            event.target.style.color = 'red';
+            console.log(event.target);
+        });
+    }); */
+
+    //event propagation
+    //bubbling
+    const list = document.querySelector('.list-item');
+    const ul = document.querySelector('ul');
+    const con = document.querySelector('.container');
+    
+    function showBubbling(event){
+        console.log('current target', event.currentTarget);
+        console.log('target', event.target);
+    }
+
+    function stopPropagation(event){
+        console.log('You clicked on the link');
+        event.stopPropagation();
+    }
+
+    //access root from parent
+    //list.addEventListener('click', showBubbling);
+    //list.addEventListener('click', stopPropagation);
+    //ul.addEventListener('click', showBubbling);
+    //con.addEventListener('click', showBubbling);
+    //window.addEventListener('click', showBubbling);
+
+    //root - parent
+    /* window.addEventListener('click', showBubbling, {capture: true});
+    con.addEventListener('click', showBubbling, {capture: true});
+    ul.addEventListener('click', showBubbling, {capture: true});
+    list.addEventListener('click', showBubbling, {capture: true}); */
+
+    //access parent from root
+    //list.addEventListener('click', showBubbling, {capture: true});
+    //ul.addEventListener('click', showBubbling, {capture: true});
+    //con.addEventListener('click', showBubbling, {capture: true});
+    //window.addEventListener('click', showBubbling, {capture: true});
+    </script>
+    
+</body>
+</html>

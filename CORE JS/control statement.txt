@@ -1,0 +1,2 @@
+# in switch statement, all cases will be evaluated until the break statement
+# break is used for stoping loop and continue is used for skiping the iteration

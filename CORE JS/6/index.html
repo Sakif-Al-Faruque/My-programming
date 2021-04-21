@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+        //array
+        /* var arr_name = ['value1', 'value2', 'value3', 'value4', 'value5'];
+        document.write(arr_name+"<br>");
+        document.write(typeof arr_name); */
+
+        //array declaration and initialization
+        //array literal
+        /* var arr_name = []; //empty array
+        arr_name[0] = 'value1';
+        arr_name[1] = 'value2';
+        arr_name[2] = 'value3';
+        document.write(arr_name);
+ */
+        //simultaneously
+        /* var arr_name = ['value1', 2, 'value3'];
+        document.write(arr_name); */
+
+        //array constructor
+        /* var arr_name = new Array();
+        arr_name[0] = 'value1';
+        arr_name[1] = 'value2';
+        arr_name[2] = 'value3';
+        document.write(arr_name); */
+
+        //simultaneously
+        /* var arr_name = new Array('value1', 'value2', 'value3');
+        document.write(arr_name); */
+
+        //modification of arrays
+        /* var arr_name = ['hello', 365, 'world'];
+        var arr_name1 = arr_name;
+        arr_name1[1] = 'this';
+
+        document.write(arr_name); */
+
+        
+        //var arr_name = ["John", "Bob", "Rock", "Siemon", "Ruth"];
+
+        //removing array element
+        /* delete arr_name[1];
+        document.write(arr_name+"<br>"); */
+
+        //array length and iteration by for loop
+        /* for(let i=0; i<arr_name.length; i++){
+            document.write(arr_name[i]+"<br>");
+        } */
+
+        //forEach loop
+        /* arr_name.forEach(function (value, index, arr) {
+           document.write("Index-"+index+" Value: "+value+"<br>"); 
+        }); */
+
+        //for of loop
+        /* for(let value of arr_name){
+            document.write(value+"<br>");
+        } */
+
+        //multidimension array
+        /* var mArr = [
+            [21, 'Joseph', 'A'], 
+            [23, 'Ruth', 'B'], 
+            [31, 'Mac', 'C']
+        ]; //array literal
+
+        for(let i=0; i<3; i++){
+            for(let value of mArr[i]){
+                document.write(value+" ");
+            }
+            document.write("<br>");
+        }
+
+
+        var mArr1 = [[], []]; //empty 2D array
+        mArr1[0][0] = 33;
+        mArr1[0][1] = 'Ram';
+        mArr1[0][2] = 'K';
+
+        mArr1[1][0] = 35;
+        mArr1[1][1] = 'Josh';
+        mArr1[1][2] = 'R';
+
+        for(let i=0; i<2; i++){
+            for(let value of mArr[i]){
+                document.write(value+" ");
+            }
+            document.write("<br>");
+        }
+
+        var mArr2 = new Array([21, 'Joseph', 'A'], [23, 'Ruth', 'B'], [31, 'Mac', 'C']); //array constructor
+        for(let i=0; i<3; i++){
+            for(let value of mArr[i]){
+                document.write(value+" ");
+            }
+            document.write("<br>");
+        } */
+
+        //creating empty array
+        /* var rows = 3;
+        var cols = 3;
+        var mArr = [];
+        
+        for(let i=0; i<rows; i++){
+            mArr[i] = [];
+        }
+        for(let i=0; i<rows; i++){
+            for(let j=0; j<cols; j++){
+                mArr[i][j] = [];
+            }
+        } */
+
+        //array methods
+        //concat
+        /* var arr1 = ['John', 'Bob', 'Ruth'];
+        var arr2 = arr1.concat('Horse', 'kman');
+        document.write(arr2+"<br>");
+
+        var arr3 = ['Roger', 'Kingsman'];
+        var arr4 = arr2.concat(arr3);
+        var arr5 = arr4.concat(arr2, arr1);
+        var arr6 = arr4.concat(arr2, arr1, 'lalaland');
+        document.write(arr6); */
+
+        //join
+        /* var arr = ['John', 'Bob', 'Ruth'];
+        var arrStr = arr.join(" ");
+        var arrStr = arr.join(" / ");
+        var arrStr = arr.join(" or ");
+        document.write(arrStr); */
+
+        //reverse
+        /* var arr = [1, 2, 3, 4, 5];
+        arr.reverse();
+        document.write(arr); */
+
+        //slice 
+        /* var arr = [1, 2, 3, 4, 5, 6, 7];
+        document.write(arr.slice(1, 5)+"<br>");
+        document.write(arr.slice(3)+"<br>");
+        document.write(arr.slice(-3)+"<br>");
+        document.write(arr.slice(-3, -1)+"<br>");
+        document.write(arr.slice(undefined, 5)+"<br>");
+        document.write(arr+"<br>"); */
+
+        //toString 
+        /* var arr = [1, 2, 3, 4, 5, 6];
+        document.write(typeof arr.toString());
+        document.write(typeof arr); */
+
+        //Array.isArray
+        /* var arr = [1, 3, 5];
+        document.write(Array.isArray(arr)); */
+
+        //splice 
+        /* var arr = ['Badman', 'Superman', 'Captain', 'Ironman'];
+        document.write(arr+"<br>");
+        //arr.splice(2, 1, 'Wolverine'); //delete and insert
+        //arr.splice(2, 1); //delete
+        //arr.splice(2); //delete at last
+        //arr.splice(0, 1); //delete from beginning
+        arr.splice(2, 0, 'Antman', 'Hulk'); //insert without deletings
+        document.write(arr); */
+
+        //indexOf
+        /* var arr = ['Badman', 'Superman', 'Captain', 'Ironman'];
+        var position = arr.indexOf('Captain');
+        var position = arr.indexOf('Wolverine');
+        var position = arr.indexOf('Badman', 1);
+        var position = arr.indexOf('Captain', 1);
+        document.write(position); */
+
+        //fill
+        /* var arr = ['Badman', 'Superman', 'Captain', 'Ironman'];
+        //arr.fill("Roger"); // fill all element
+        arr.fill("Roger", 1, 3); // fill specific element
+        arr.fill("Roger", 1); // specific starting
+        document.write(arr); */
+
+        //unshift
+        /* var arr = ['Badman', 'Superman', 'Captain', 'Ironman'];
+        var arr_len = arr.unshift("Hero", 'Krish');
+        document.write(arr+"<br>");
+        document.write(arr_len+"<br>"); */
+
+        //push
+        /* var arr = ['Badman', 'Superman', 'Captain', 'Ironman'];
+        var arr_len = arr.push("Hero", 'Krish');
+        document.write(arr+"<br>");
+        document.write(arr_len+"<br>"); */
+        
+        //shift
+        /* var arr = ['Badman', 'Superman', 'Captain', 'Ironman'];
+        var first_ele = arr.shift();
+        document.write(arr+"<br>");
+        document.write(first_ele+"<br>"); */
+        
+        //pop
+        /* var arr = ['Badman', 'Superman', 'Captain', 'Ironman'];
+        var last_ele = arr.pop();
+        document.write(arr+"<br>");
+        document.write(last_ele+"<br>"); */
+    </script>
+</body>
+</html>

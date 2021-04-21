@@ -1,0 +1,140 @@
+in 4.6
+# assigning primitive data do not effect the orginal value on the other hand for the non-primitive data, orginal value will be changed also.
+
+in 4.13
+functions
+# callback - passed to an another function as an argument and executed inside that function
+# function as first class object - stored in a varible, passed as an argument to another function and return from function(closure)
+# higher order function - accept another function as argument or return another function as a result.
+
+in 4.15
+forEach
+# does not return new array
+
+in 4.16
+map
+# does return a new array
+# does not change size of orginal array
+# uses values from orginal array when making new one.
+
+in 4.17
+filter
+# does return a new array
+# does modify size of the array
+# checks condition, if none match empty array
+
+in 4.18
+find
+# return first match, if no match undefined
+# great for getting unique value
+
+in 4.19
+reduce
+# iterates, callback function
+# reduces to a single value - number, array, object
+# 1 parameter ('acc') - total of all calculations
+# 2 parameter ('curr') - current iteration/value
+
+
+Note: we can use call back function in forEach, map, filter, find instead of the annonymous function.
+Note: filter return modified array and find returns element
+
+
+in 5.5
+getElementByTagName('tagname')
+# node list = array-like object
+# index, length property but not array method
+
+Navigation
+in 5.8
+# childNodes, firstChild, lastChild return all childNodes including whitespace which is treated as a text node 
+# children -> these will actual children
+
+in 5.9
+# parentElement - return the parent element
+
+in 5.10
+# sibling - return white space also
+
+in 5.12
+# nodeValue - value of any node
+# textContent - text of any element and we can manipulate any text content with that property
+
+in 5.13
+# getAttribute('attribute_name')
+# setAttribute('attribute_name', 'attribute_value')
+
+in 5.14
+# className - return the class attribute value and we can also modify the value
+# classList - adding and droping multiple class
+
+in 5.15
+# createElement('element')
+# createTextNode('texts')
+# element.appendChild('element variable that we want to append')
+
+in 5.16
+# element.insertBefore('element', 'location')
+
+in 5.17
+# element.replaceChild('new', 'old')
+
+in 5.18
+# prepend - add child before element
+# innerText - create text
+
+in 5.19
+# remove - remove the selected element
+# removeChild - remove the child elements of a selected element
+
+in 5.20
+# textContent - works with text of any element
+# innerHTML - work with whole content( tag, text) of any element
+
+in 5.23
+# event steps
+    * select element
+    * addEventListener
+    * what event, what to do
+# mouse event
+    * click - fires after full action occurs
+    * mousedown - mouse pressed
+    * mouseup - mouse released
+    * mouseenter - move onto the element
+    * mouseleave - move outside the element
+# key events
+    * keypress - key is pressed in total
+    * keydown - key is down
+    * keyup - key is released
+
+in 5.27
+event object
+# event object argument
+# info about triggered event
+# event.type
+# event.currentTarget
+# this keyword - it will work only in regular function
+# preventDefault() - prevents default behaviour
+
+in 5.28
+currentTarget vs target
+# currentTarget - always refers to the element to which the event handler has been attactd to
+# target - identify the element on which the event occured
+
+in 5.29
+event propagation
+# allows select dynamic elements
+# event propagation - order the events are fired
+# event bubbling - clicked element first then bubbles up -- default
+# event capturing - fires at the root and fires until reaches the target
+
+in 5.32
+web storage API - provided by browser
+# session storage - store data between the opening and closing tab
+# local storage - store data between the opening and closing browser
+# setItem
+# getItem
+# removeItem
+# clear
+# localStorage.setItem('name', 'john');
+# sessionStorage.setItem('name', 'john');

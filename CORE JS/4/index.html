@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        //object literal
+        /* var myObj = {}; //object declaration
+        myObj.firstPro = "first";
+        myObj["secondPro"] = "second";
+        myObj.myFunc1 = function() {
+            return (300+300);
+        }
+        myObj["myFunc2"] = function () {
+            return (300+300);
+        }
+        myObj["obj pro"] = "Object Property";
+
+        document.write(myObj.firstPro+"<br>");
+        document.write(myObj["secondPro"] + "<br>");
+        document.write(myObj["obj pro"] + "<br>");
+        document.write(myObj.myFunc1() + "<br>");
+        document.write(myObj["myFunc2"]() + "<br>"); */
+
+        //object literal[declaration and initialization at same time]
+        /* var myObj = {
+            firstPro: "First Property",
+            "Obj Pro": "Object Property",
+            myFunc: function() {
+                return 500;
+            },
+            helloFunc: function() {
+                document.write("hello world!<br>");
+            }
+        };
+        document.write(myObj.firstPro+"<br>");
+        document.write(myObj["obj Pro"]+"<br>");
+        document.write(myObj.myFunc()+"<br>");
+        myObj.helloFunc(); */
+
+        //object constructor
+        /* var myObj = new Object(); //object declaration
+        myObj.firstProperty = "Hello";
+
+        document.write(myObj.firstProperty); */
+
+        //deleting object property
+        /* var myObj = {};
+        myObj.firstProperty = 100;
+        delete myObj.firstProperty;
+
+        document.write(myObj.firstProperty); */
+
+        //factory function
+        /* function facFunc(){
+            return {
+                firstProperty: "Hello",
+                secordProperty: function(){
+                    return "World!";
+                }
+            };
+        }
+        var facFunc1 = facFunc();
+        var facFunc2 = facFunc();
+
+        document.write(facFunc1.firstProperty);
+        document.write(facFunc1.secordProperty());
+
+        document.write(facFunc2.firstProperty);
+        document.write(facFunc2.secordProperty()); */
+
+        //factory function with parameter
+            /* function mobile(m, p){
+                return {
+                    model: m,
+                    price: function () {
+                        return "Price is "+p;
+                    }
+                };
+            }
+            var samsung = mobile("galaxy", 10000);
+            var nokia = mobile("xl", 5000);
+    
+            document.write(samsung.model);
+            document.write(samsung.price());
+
+            document.write(nokia.model);
+            document.write(nokia.price()); */
+    
+        //constructor
+            /* function helloCons(){
+                this.firstProperty = 100;
+                this.demoFunc = function(){
+                    return "Hello";
+                };
+            }
+            var h1 = new helloCons();
+            document.write(h1.firstProperty);
+            document.write(h1.demoFunc()); */
+
+        //constructor with parameter
+        /* function Mobile(model){
+            this.model = model;
+            this.printModel = function(){
+                return (this.model+" is particular model");
+            };
+        }
+        var samsung = new Mobile("Galaxy");
+        document.write(samsung.printModel()+"<br>"); */
+
+        //checking properties existence-1
+        /* if(samsung.model !== undefined){
+            document.write("Exist");
+        }else{
+            document.write("Not Exist");
+        } */
+
+        //checking properties existence-2
+        /* if('model' in samsung){
+            document.write("Exist");
+        }else{
+            document.write("Not Exist");
+        } */
+
+        //for in loop
+        /* var obj = {
+            firstPro: "first",
+            secondPro: "second",
+            thirdPro: "third",
+            fourthPro: "fourth",
+            fifthPro: "fifth"
+        };
+        for(var pro in obj){
+            document.write(pro+"<br>"); //list the property names
+        }
+        for(var pro in obj){
+            document.write(obj[pro]+"<br>"); //list the property's values
+        } */
+
+        //defining a class with constructor
+        /* var Mobile = function(model, price){
+            this.model = model;
+            this.price = price;
+            this.details = function(){
+                return (this.model+" costs "+this.price);
+            };
+        };
+        var iphone = new Mobile("7s", 26000);
+        document.write(iphone.details()); */
+
+        //creating private property in class
+        /* var demoCls = function(){
+            var firstPro = "first"; /// creating private property
+            this.getPro = function(){ 
+                return firstPro;
+            }
+        };
+        var d1 = new demoCls();
+        document.write(d1.getPro());    //accessing private property from outside the class through public method */
+
+        //prototype member
+        /* var Mobile = function(model, price){
+            this.model = model;
+            this.price = price;
+        };
+        Mobile.prototype.color = "white";
+
+        var iphone = new Mobile("7s", 26000);
+        var samsung = new Mobile("galaxy", 10000);
+        var nokia = new Mobile("1100", 3000);
+        document.write(iphone.color+"<br>");
+        document.write(samsung.color+"<br>");
+        document.write(nokia.color+"<br>"); */
+
+        //prototype object
+        //for object literal
+        /* var obj = {};
+        console.log(Object.getPrototypeOf(obj)); //Object.prototype
+        console.log(Object.prototype);
+        console.log(Object.getPrototypeOf(Object.prototype)); //null
+
+        //for object construtor
+        var cObj = new Object();
+        console.log(Object.getPrototypeOf(cObj)); //Object.prototype
+
+        //for array
+        var aObj = new Array();
+        console.log(Object.getPrototypeOf(aObj)); //Array.prototype
+        console.log(Array.prototype); 
+        console.log(Object.getPrototypeOf(Array.prototype)); //Object.prototype */
+
+        //prototype working process
+        /* function Mobile(model){
+            this.model = model;
+        }
+        Mobile.prototype.color = "white";
+
+        var m1 = new Mobile("1100");
+        document.write(m1.__proto__.color);
+
+        console.log(Mobile.prototype);
+        console.log(m1.__proto__);
+        console.log(Mobile === m1.__proto__.constructor); */
+
+        //prototype inheritence
+        /* function Person(){ //super class
+            this.age = 40;
+        }
+        Person.prototype.name = "John";
+
+        function Teacher(){ //sub class
+            this.profession = "teacher";
+        }
+        Teacher.prototype = Object.create(Person.prototype);
+
+        var t1 = new Teacher();
+        document.write(t1.__proto__.name+'<br>');
+        document.write(t1.profession+'<br>');
+        document.write(t1.__proto__.__proto__.age+'<br>'); */
+
+        //one super class and two sub class
+        /* var Mobile = function(){ //super class
+
+        };
+        Mobile.prototype.getModel = function(){
+            return this.model;
+        };
+        
+        var Samsung = function(model, price){ //sub class
+            this.model = model;
+            this.price = price;
+        };
+        Samsung.prototype = Object.create(Mobile.prototype);
+
+        var Nokia = function(model){ //sub class
+            this.model = model;
+        };
+        Nokia.prototype = Object.create(Mobile.prototype);
+
+        //resetting constructor
+        Samsung.prototype.constructor = Samsung; 
+        Nokia.prototype.constructor = Nokia;
+        
+        var s1 = new Samsung("galaxy", 10000);
+        document.write(s1.getModel()+"<br>");
+
+        var n1 = new Nokia("1100");
+        document.write(n1.getModel()+"<br>"); */
+
+        //constructor inheritence and shorting prototype inheritence
+        /* function extend(child, parent){ //shorting prototype inheritence
+            child.prototype = Object.create(parent.prototype);
+            child.prototype.constructor = child;
+        }
+
+        var Mobile =  function(name){
+            this.name = name;
+        }
+        Mobile.prototype.getName = function(name){
+            return ("mobile name is "+name);
+        }
+
+        function Samsung(model, price){
+            this.model = model;
+            this.price = price;
+            Mobile.call(this, "Samsung");
+        }
+
+        function Nokia(model, price){
+            this.model = model;
+            this.price = price;
+            Mobile.call(this, "Nokia");
+        }
+
+        extend(Samsung, Mobile);
+        extend(Nokia, Mobile);
+
+        var s1 = new Samsung("galaxy", 20000);
+        var n1 = new Nokia("1100", 3000);
+
+        document.write(s1.__proto__.getName("Samsung")+"<br>");
+        document.write(n1.__proto__.getName("Nokia")+"<br>");
+
+        document.write(s1.name+"<br>");
+        document.write(n1.name+"<br>"); */
+
+        //method overriding with prototype
+        /* function Mobile(){
+
+        }
+        Mobile.prototype.getString = function(){
+            return "this is super class method";
+        };
+
+        function Samsung(){
+
+        }
+        Samsung.prototype = Object.create(Mobile.prototype);
+        Samsung.prototype.constructor = Samsung;
+
+        Samsung.prototype.getString = function(){ //overridden method
+            return "this is base class method";
+        };
+
+        var s1 = new Samsung();
+        document.write(s1.__proto__.__proto__.getString()+"<br>");
+        document.write(s1.__proto__.getString()); */
+
+        //composition and mixin
+        /* var Eating = {
+            eat: function(){
+                return "Eat some food";
+            }
+        };
+        var Talking = {
+            talk: function(){
+                return "Let's have a dicussion";
+            }
+        };
+        var Walking = {
+            walk: function(){
+                return "Walk somewhere";
+            }
+        };
+
+        var Teacher = Object.assign({}, Eating, Talking, Walking);
+        document.write(Teacher.talk()+"<br>");
+
+
+        function Human(){ //object assinging with prototype
+
+        }
+        Object.assign(Human.prototype, Eating, Talking, Walking);
+
+        var Student = new Human();
+        document.write(Student.__proto__.walk()+"<br>");
+
+        function Mixin(target, ...feture_obj){
+            Object.assign(target.prototype, ...feature_obj); //here '...' operator works as spreading operator
+        } */
+
+        //class
+        //class declaration
+        /* class Mobile {
+            //instance properties
+            constructor (model){
+                //instance member
+                this.model = model;
+            }
+            //prototype members
+            showModel() {
+                return "prototype member "+this.model;    
+            }
+        }
+
+        var samsung = new Mobile("galaxy");
+        document.write(samsung.model+"<br>");
+
+        var nokia = new Mobile("1100");
+        document.write(nokia.model+"<br>");
+
+        document.write(samsung.showModel()); */
+
+        //class inheritence
+        /* class Father{
+            showFInfo(){
+                return 'this is father info';
+            }
+        }
+        class Son extends Father{
+            showSInfo(){
+                return 'this is son info';
+            }
+        }
+
+        var s1 = new Son();
+        document.write(s1.showSInfo()+'<br>');
+        document.write(s1.showFInfo()+'<br>'); */
+
+        //super method
+        /* class Father{
+            constructor(money){
+                this.money = money;
+            }
+            showFInfo(){
+                return 'this is father info '+this.money;
+            }
+        }
+        class Son extends Father{
+            constructor(money){
+                super(money);
+            }
+            showSInfo(){
+                return 'this is son info';
+            }
+        }
+
+        var s1 = new Son(12000);
+        document.write(s1.showSInfo()+'<br>');
+        document.write(s1.showFInfo()+'<br>'); */
+
+
+        //method overriding
+        /* class Father{
+            showInfo(){
+                return 'Show info from father';
+            }
+        }
+        class Son extends Father{
+            showInfo(){
+                return 'Show info from son';
+            }
+        }
+
+        var s1 = new Son(12000);
+        document.write(s1.showInfo()+'<br>'); */
+
+        //static method
+        class Father{
+            static showInfo(){
+                return 'Hello from father';
+            }
+        }
+        document.write(Father.showInfo());
+    </script>
+</body>
+</html>

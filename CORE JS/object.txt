@@ -1,0 +1,17 @@
+# Object.keys(object_name) return all the property of the object. It will not calculate prototype object members
+# ways of making objects
+	1. object literal
+	2. object constructor
+	3. factory function
+	4. constructor
+# the member inisialize with 'prototype' keyword is called prototype member otherwise members are called instance member.
+# prototype = base class = parent class
+# Object.keys(object_name) will not access prototype members but for in loop can access.
+# prototype of any object -> Object.prototype -> null
+# prototype of array object -> Array.prototype -> Object.prototype -> null
+# prototype of string object -> Array.prototype -> Object.prototype -> null
+# when a constructor function is defined two object are created: 1. function, 2. prototype
+# prototype inheritence: child_obj.prototype = Object.create(parent_obj.prototype);
+# we can assign object features with Object.assign(); syntax: raw_obj = Object.assign({}, feature_obj1, feature_obj2, ... ...); feature_obj will go to that empty object( {} ) then that object will be assigned to the raw object.
+# in class declaration, all method will be the member of prototype object except constructor.
+# if you don't create constructor method in derived class then derived class constructor will automatically send the value to the super call otherwise we have to use super method 

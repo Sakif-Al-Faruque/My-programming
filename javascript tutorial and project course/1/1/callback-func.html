@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //callback function
+        /* function calculateNum(arr, callBack){
+            let result = [];
+            for(let value of arr){
+                let item = callBack(value);
+                result.push(item);
+            }
+            return result;
+        }
+        function addNum(num){
+            return num+10;
+        }
+        function multiplyNum(num){
+            return num*10;
+        }
+        document.write(calculateNum([1, 2, 3], addNum)+"<br>");
+        document.write(calculateNum([1, 2, 3], multiplyNum)+"<br>"); */
+
+        //forEach loop
+        /* var arr = [1, 2, 3];
+        arr.forEach(function(value, index, arr){
+            document.write(index+" - "+value+"<br>");
+        }); */
+
+        //map
+        /* const people = [
+            {name: 'John', age: 25, department: 'cse'},
+            {name: 'Bob', age: 35, department: 'math'},
+            {name: 'Ruth', age: 33, department: 'physics'},
+            {name: 'Ken', age: 44, department: 'cse'},
+        ];
+        function showPerson(value){
+            return {first_name: value.name, age: value.age+10, department: value.department};
+        }
+        const person = people.map(showPerson);
+        console.log(person); */
+
+        //filter
+        /* const people = [
+            {name: 'John', age: 25, department: 'cse'},
+            {name: 'Bob', age: 35, department: 'math'},
+            {name: 'Ruth', age: 33, department: 'physics'},
+            {name: 'Ken', age: 44, department: 'cse'},
+        ];
+        function showPerson(value){
+            return value.age <= 35;
+        }
+        const person = people.filter(showPerson);
+        console.log(person); */
+
+        //find
+        /* const people = [
+            {name: 'John', age: 25, department: 'cse', id: 1},
+            {name: 'Bob', age: 35, department: 'math', id: 2},
+            {name: 'Ruth', age: 33, department: 'physics', id: 3},
+            {name: 'Ken', age: 44, department: 'cse', id: 4},
+        ];
+        function showSpecificAge(value){
+            return value.id === 3;
+        }
+        var person = people.find(showSpecificAge);
+        console.log(person); */
+
+        //reduce
+        /* const people = [
+            {name: 'John', age: 25, department: 'cse', id: 1, salary: 5000},
+            {name: 'Bob', age: 35, department: 'math', id: 2, salary: 4000},
+            {name: 'Ruth', age: 33, department: 'physics', id: 3, salary: 7000},
+            {name: 'Ken', age: 44, department: 'cse', id: 4, salary: 6000},
+        ];
+        var totalSal = people.reduce(function(acc, curr){
+            acc += curr.salary;
+            return acc;
+        }, 0);
+        document.write(totalSal); */
+
+
+        /* practice */
+        /* var arr = [1, 2, 3, 4, 5];
+        arr.forEach(function(value, index, arr){
+            console.log(index," : ",value);
+        }); */
+
+        const people = [
+            {name: 'John', age: 25, department: 'cse', id: 1, salary: 5000},
+            {name: 'Bob', age: 35, department: 'math', id: 2, salary: 4000},
+            {name: 'Ruth', age: 33, department: 'physics', id: 3, salary: 7000},
+            {name: 'Ken', age: 44, department: 'cse', id: 4, salary: 6000},
+        ];
+        var person = people.map(function(value){
+            return {id: value.id, full_name: value.name, age: value.age, salary: value.salary};
+        });
+        console.log(person);
+    </script>
+</body>
+</html>
