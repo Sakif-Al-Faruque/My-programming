@@ -1,0 +1,16 @@
+# internal css style will be overidden by inline css.
+# extarnal css style will be overidden by internal css.
+# children element automatic inherit the parent element style.
+# Units
+	1. 1em = 16px [default browser style], em -> relative depends on parent
+	2. 1rem = 16px [default browser style], rem -> relative depends on root
+	3. vw[for width], vh[for height] -> percent of the screen
+# for color pattern
+	1. https://coolors.co/
+# pseudo classes
+	1. https://www.w3schools.com/css/css_pseudo_classes.asp
+#css gradient generator
+	1. https://www.colorzilla.com/gradient-editor/
+#css position property of abosolute value uses the nearest ancestor which position property has the relative value.
+#css box-shadow generator
+	1. https://html-css-js.com/css/generator/box-shadow/

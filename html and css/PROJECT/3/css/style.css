@@ -1,0 +1,13 @@
+/* INHERITENCE */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: red;
+}
+.banner {
+  height: 100vh;
+  width: 100vw;
+  background: rgb(98, 211, 141);
+}

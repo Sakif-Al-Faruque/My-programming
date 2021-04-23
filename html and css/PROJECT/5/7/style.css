@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: rgb(68, 65, 65);
+}
+div.box {
+  height: 250px;
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0f200c+0,353936+58,595959+80,595959+100 */
+  background: rgb(15, 32, 12); /* Old browsers */
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(15, 32, 12, 1) 0%,
+    rgba(53, 57, 54, 1) 58%,
+    rgba(89, 89, 89, 1) 80%,
+    rgba(89, 89, 89, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(15, 32, 12, 1) 0%,
+    rgba(53, 57, 54, 1) 58%,
+    rgba(89, 89, 89, 1) 80%,
+    rgba(89, 89, 89, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    135deg,
+    rgba(15, 32, 12, 1) 0%,
+    rgba(53, 57, 54, 1) 58%,
+    rgba(89, 89, 89, 1) 80%,
+    rgba(89, 89, 89, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f200c', endColorstr='#595959',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  animation-name: box_animation;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes box_animation {
+  0% {
+    border: 10px solid #04baf1;
+    box-shadow: 0px 0px 30px 11px rgba(0, 0, 0, 0.88);
+  }
+  50% {
+    border: none;
+    box-shadow: none;
+  }
+  100% {
+    border: 10px solid #04baf1;
+    box-shadow: 0px 0px 30px 11px rgba(0, 0, 0, 0.88);
+  }
+}

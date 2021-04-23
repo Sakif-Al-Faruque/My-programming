@@ -1,0 +1,7 @@
+# html is white space collapse because, it ignore the extra space inside the element and outside the element.
+# external image means the image from web
+# some website for downloading images
+	1. https://www.pexels.com/
+	2. https://gratisography.com/
+	3. https://pixabay.com/
+# adjusting image size in html will not effect the actual image size and this can be reason for loading suffering. So for getting rid of this, the actual image should be resized.[we can use windows default preview for resizing]

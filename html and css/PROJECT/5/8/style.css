@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: rgb(44, 42, 42);
+}
+div.center {
+  height: 30%;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  font-size: 7rem;
+  color: rgb(228, 91, 91);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+div.center i {
+  font-size: 8rem;
+  animation-name: txt-sh;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+div.center span {
+  font-family: "Pacifico", cursive;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+}
+@keyframes txt-sh {
+  0% {
+    text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+      #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+      #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+  }
+  50% {
+    text-shadow: none;
+  }
+  0% {
+    text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+      #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
+      #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+  }
+}
