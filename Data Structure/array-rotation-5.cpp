@@ -4,11 +4,14 @@
 using namespace std;
 
 int pivotElementIndex(int arr[], int n){
+    int flag = -1;
     for(int i=0; i<n-2; i++){
         if(arr[i] > arr[i+1]){
-            return i;
+            flag = i;
+            break;
         }
     }
+    return flag;
 }
 
 int binarySearch(int arr[], int n, int data){
@@ -28,28 +31,34 @@ int binarySearch(int arr[], int n, int data){
 }
 
 void seachingElement(int arr[], int n, int data){
-    int pEle = pivotElementIndex(arr, n)+1;
-    int arr2[pEle];
-    int arr1[n-pEle];
-
-    for(int i=pEle, j=0; i<n; i++, j++){
-        arr1[j] = arr[i];
-        
-    }
-    for(int i=0; i<pEle; i++){
-        arr2[i] = arr[i];
-        
-    }
-
-    if(binarySearch(arr2, pEle, data) > -1){
-        cout<<binarySearch(arr2, n, data);
+    if(pivotElementIndex(arr, n) < 0){
+        if(binarySearch(arr, n, data) > 0){
+            cout<<"Index is: "<<binarySearch(arr, n, data)<<endl;
+        }else{
+            cout<<"Not found";
+        }
     }else{
-        cout<<binarySearch(arr1, (n-pEle), data);
+        int pEle = pivotElementIndex(arr, n)+1;
+        int arr1[pEle];
+        int arr2[n-pEle];
+        for(int i=0; i<pEle; i++){
+            arr1[i] = arr[i];
+        }
+        for(int i=pEle, j=0; i<n; i++, j++){
+            arr2[j] = arr[i];
+        }
+        if(binarySearch(arr1, pEle, data) > 0){
+            cout<<"Index is: "<<binarySearch(arr1, pEle, data)<<endl;
+        }else if(binarySearch(arr2, n-pEle, data) > 0){
+            cout<<"Index is: "<<binarySearch(arr2, n-pEle, data)+pEle<<endl;
+        }else{
+            cout<<"Not found";
+        }
     }
 }
 
 int main(){
-    int arr[5] = {3, 4, 5, 1, 2};
-    seachingElement(arr, 5, 2);
+    int arr[6] = {4, 5, 6, 1, 2, 3};
+    seachingElement(arr, 6, 6);
 
 }
