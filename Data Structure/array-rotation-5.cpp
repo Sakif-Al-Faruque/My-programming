@@ -60,5 +60,5 @@ void seachingElement(int arr[], int n, int data){
 int main(){
     int arr[6] = {4, 5, 6, 1, 2, 3};
     seachingElement(arr, 6, 6);
-
+    
 }
