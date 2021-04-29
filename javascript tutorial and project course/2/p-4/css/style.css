@@ -1,0 +1,25 @@
+body{
+    background: #99ddff;
+}
+
+.container{
+    background: white;
+    height: 400px;
+    width: 700px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.message-content{
+    color: #99ddff;
+    display: block;
+}
+
+.feedback{
+    display: none;
+}
+.show{
+    display: block;
+}
