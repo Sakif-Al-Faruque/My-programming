@@ -1,3 +1,4 @@
+//node creation and traverse
 #include <iostream>
 #include <cstdlib>
 
