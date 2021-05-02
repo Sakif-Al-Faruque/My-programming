@@ -70,22 +70,33 @@ void deleteFromBeginning(){
 }
 
 void deleteFromLast(){
-    struct Node *prevNode, *deletedNode;
-    prevNode = deletedNode = head;
+    /* struct Node *prevNode, *deletedNode;
+    prevNode = deletedNode = head; */
 
-    while (deletedNode->next != NULL){
+    struct Node *prevNode;
+    prevNode = head;
+
+    /* while (deletedNode->next != NULL){
         prevNode = deletedNode;
         deletedNode = deletedNode->next;
     }
     prevNode->next = NULL;
-    free(deletedNode);
+    free(deletedNode); */
 
+    while (prevNode->next->next != NULL){
+        prevNode = prevNode->next;
+    }
+    free(prevNode->next);
+    prevNode->next = NULL;
+
+    cout<<"Node has been deleted"<<endl;
     counter--;
 }
 
 void deleteFromSpecifiedPosition(int position){
     int i=1;
-    struct Node *prevNode, *deletedNode;
+    //struct Node *prevNode, *deletedNode;
+    struct Node *prevNode;
 
     prevNode = head;
 
@@ -94,9 +105,11 @@ void deleteFromSpecifiedPosition(int position){
         i++;
     }
 
-    deletedNode = prevNode->next;
+    /* deletedNode = prevNode->next;
     prevNode->next = deletedNode->next;
-    free(deletedNode);
+    free(deletedNode); */
+
+    prevNode->next = prevNode->next->next;
 
     counter--;
     
@@ -105,6 +118,7 @@ void deleteFromSpecifiedPosition(int position){
 
 int main(){
     int opt;
+    
     while(1){
         cout<<"1-create nodes"<<endl;
         cout<<"2-traverse nodes"<<endl;
