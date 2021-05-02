@@ -1,4 +1,5 @@
 //insertion
+//deletion
 #include <iostream>
 #include <cstdlib>
 
@@ -58,12 +59,57 @@ void insertAtLast(int d){
     counter++;
 }
 
+void deleteFromBeginning(){
+    struct Node *deletedNode;
+    deletedNode = head;
+    head = deletedNode->next;
+    free(deletedNode);
+
+    counter--;
+    cout<<"Node has been deleted"<<endl;
+}
+
+void deleteFromLast(){
+    struct Node *prevNode, *deletedNode;
+    prevNode = deletedNode = head;
+
+    while (deletedNode->next != NULL){
+        prevNode = deletedNode;
+        deletedNode = deletedNode->next;
+    }
+    prevNode->next = NULL;
+    free(deletedNode);
+
+    counter--;
+}
+
+void deleteFromSpecifiedPosition(int position){
+    int i=1;
+    struct Node *prevNode, *deletedNode;
+
+    prevNode = head;
+
+    while (i < (position-1)){
+        prevNode = prevNode->next;
+        i++;
+    }
+
+    deletedNode = prevNode->next;
+    prevNode->next = deletedNode->next;
+    free(deletedNode);
+
+    counter--;
+    
+    
+}
+
 int main(){
     int opt;
     while(1){
         cout<<"1-create nodes"<<endl;
         cout<<"2-traverse nodes"<<endl;
         cout<<"3-insert nodes"<<endl;
+        cout<<"4-delete nodes"<<endl;
         cout<<"Enter your option: ";
         cin>>opt;
 
@@ -121,6 +167,27 @@ int main(){
                 cin>>k;
 
                 insertAfterPosition(d, k);
+            }else{
+                cout<<"Wrong option"<<endl;
+            }
+        }else if(opt == 4){
+            int subopt;
+            cout<<"1-delete from first"<<endl;
+            cout<<"2-delete from end"<<endl;
+            cout<<"3-delete from a position"<<endl;
+            cout<<"Enter your option: ";
+            cin>>subopt;
+
+            if(subopt == 1){
+                deleteFromBeginning();
+            }else if(subopt == 2){
+                deleteFromLast();
+            }else if(subopt == 3){
+                int j;
+                cout<<"Enter your position: ";
+                cin>>j;
+                
+                deleteFromSpecifiedPosition(j);
             }else{
                 cout<<"Wrong option"<<endl;
             }
