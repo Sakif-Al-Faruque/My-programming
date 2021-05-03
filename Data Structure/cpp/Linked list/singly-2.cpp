@@ -1,5 +1,7 @@
 //insertion
 //deletion
+//finding length
+//reverse the list
 #include <iostream>
 #include <cstdlib>
 
@@ -116,6 +118,32 @@ void deleteFromSpecifiedPosition(int position){
     
 }
 
+int getLength(){
+    int count = 0;
+    temp = head;
+
+    while(temp != NULL){
+        temp = temp->next;
+        count++;
+    }
+    return count;
+}
+
+void reverseTheList(){
+    struct Node *prevNode, *currNode, *nextNode;
+    prevNode = NULL;
+    currNode = nextNode = head;
+
+    while(nextNode != NULL){
+        nextNode = nextNode->next;
+        currNode->next = prevNode;
+        prevNode = currNode;
+        currNode = nextNode;
+    } 
+    head = prevNode;
+    cout<<"Reversing is completed..."<<endl;
+}
+
 int main(){
     int opt;
     
@@ -124,6 +152,8 @@ int main(){
         cout<<"2-traverse nodes"<<endl;
         cout<<"3-insert nodes"<<endl;
         cout<<"4-delete nodes"<<endl;
+        cout<<"5-nodes length"<<endl;
+        cout<<"6-reverse the nodes"<<endl;
         cout<<"Enter your option: ";
         cin>>opt;
 
@@ -205,6 +235,10 @@ int main(){
             }else{
                 cout<<"Wrong option"<<endl;
             }
+        }else if(opt == 5){
+            cout<<"Length of Linked List: "<<getLength()<<endl;
+        }else if(opt == 6){
+            reverseTheList();
         }else{
             break;
         }
