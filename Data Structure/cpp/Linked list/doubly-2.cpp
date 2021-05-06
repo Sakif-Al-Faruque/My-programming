@@ -1,5 +1,6 @@
 //creation and traversal with tail
 //insertion
+//deletion
 
 #include <iostream>
 #include <cstdlib>
@@ -138,12 +139,56 @@ void insertAfterPosition(int d, int position){
     }
 }
 
+void deleteFromBeginning(){
+    struct Node *deletedNode = head;
+
+    head = deletedNode->next;
+    deletedNode->next->prev = NULL;
+    free(deletedNode);
+
+    counter--;
+    cout<<"Element is deleted"<<endl;
+}
+
+void deleteFromEnd(){
+    struct Node *deletedNode = tail;
+
+    tail = deletedNode->prev;
+    tail->next = NULL;
+    free(deletedNode);
+
+    counter--;
+    cout<<"Element is deleted"<<endl;
+}
+
+void deleteFromPosition(int position){
+    if(position > counter){
+        cout<<"Invalid position"<<endl;
+    }else{
+        int i=1;
+        struct Node *deletedNode = head;
+
+        while(i < position){
+            deletedNode = deletedNode->next;
+            i++;
+        }
+
+        deletedNode->prev->next = deletedNode->next;
+        deletedNode->next->prev = deletedNode->prev;
+        free(deletedNode);
+
+        counter--;
+        cout<<"Element is deleted"<<endl;
+    }
+}
+
 int main(){
     while (1)
     {
         cout<<"opt-1 create list"<<endl;
         cout<<"opt-2 traverse list"<<endl;
         cout<<"opt-3 insert into list"<<endl;
+        cout<<"opt-4 delete from list"<<endl;
         int opt;
         cout<<"Enter your option: ";
         cin>>opt;
@@ -185,6 +230,25 @@ int main(){
                 cin>>d>>p;
 
                 insertAfterPosition(d, p);
+            }
+        }else if(opt == 4){
+            cout<<"d-1 delete from begininng"<<endl;
+            cout<<"d-2 delete from end"<<endl;
+            cout<<"d-3 delete from specific position"<<endl;
+            int subopt;
+            cout<<"Your choice: ";
+            cin>>subopt;
+
+            if(subopt == 1){
+                deleteFromBeginning();
+            }else if(subopt == 2){
+                deleteFromEnd();
+            }else if(subopt == 3){
+                int p;
+                cout<<"Enter your position to delete: ";
+                cin>>p;
+
+                deleteFromPosition(p);
             }
         }else{
             break;
