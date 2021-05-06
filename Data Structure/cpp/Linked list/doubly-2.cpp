@@ -1,7 +1,7 @@
 //creation and traversal with tail
 //insertion
 //deletion
-
+//reverse traversal
 #include <iostream>
 #include <cstdlib>
 
@@ -182,6 +182,17 @@ void deleteFromPosition(int position){
     }
 }
 
+void reverseDisplay(){
+    struct Node *temp = tail;
+
+    cout<<"Reverse List: ";
+    while(temp != NULL){
+        cout<<temp->data<<" ";
+        temp = temp->prev;
+    }
+    cout<<endl;
+}
+
 int main(){
     while (1)
     {
@@ -189,6 +200,7 @@ int main(){
         cout<<"opt-2 traverse list"<<endl;
         cout<<"opt-3 insert into list"<<endl;
         cout<<"opt-4 delete from list"<<endl;
+        cout<<"opt-5 reverse list"<<endl;
         int opt;
         cout<<"Enter your option: ";
         cin>>opt;
@@ -250,6 +262,8 @@ int main(){
 
                 deleteFromPosition(p);
             }
+        }else if(opt == 5) {
+            reverseDisplay();
         }else{
             break;
         }
