@@ -21,7 +21,8 @@ myClass::myClass(int value){
     a = value;
 }
 
-void myClass::set_a(int value){
+//a simple approach to make 'set_a' function 'inline'
+inline void myClass::set_a(int value){
     a = value;
 }
 
