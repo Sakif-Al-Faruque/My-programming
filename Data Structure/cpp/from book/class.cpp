@@ -57,5 +57,12 @@ int main(){
 
     myClass1 c1(30, 40);
 
+    myClass ob3, *obp;
+    obp = &ob3;
+
+    obp->set_a(100);
+    cout<<obp->get_a()<<endl;
+
+
     return 0;
 }
