@@ -64,6 +64,14 @@ int main(){
     obp->set_a(100);
     cout<<obp->get_a()<<endl;
 
+    //assigning object
+    myClass ob4, ob5;
+
+    ob4.set_a(200);
+    ob5 = ob4;
+    cout<<ob4.get_a()<<endl;
+    cout<<ob5.get_a()<<endl;
+
 
     return 0;
 }
