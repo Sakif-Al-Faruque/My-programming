@@ -48,6 +48,15 @@ myClass1::~myClass1(){
     cout<<"Value of k: "<<k<<endl;
 }
 
+//passing object as parameter
+void myFunc1(myClass obj){ //pass by value
+    cout<<"From myFunc1: "<<obj.get_a()<<endl;
+}
+
+void myFunc2(myClass *obj){ //pass by reference
+    cout<<"From myFunc2: "<<obj->get_a()<<endl;
+}
+
 int main(){
     myClass ob1;
     ob1.set_a(10);
@@ -72,6 +81,12 @@ int main(){
     cout<<ob4.get_a()<<endl;
     cout<<ob5.get_a()<<endl;
 
+    //passing object argument
+    myClass obj1(500);
+    myFunc1(obj1);  //pass by value
+
+    myClass obj2(600);
+    myFunc2(&obj2); //pass by reference
 
     return 0;
 }
