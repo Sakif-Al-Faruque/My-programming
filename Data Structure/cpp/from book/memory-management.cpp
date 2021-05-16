@@ -5,13 +5,13 @@ using namespace std;
 
 int main(){
     //for string
-    /* char str[6];
+    char str[6];
     char *p;
 
     cout<<"Enter a string: ";
     cin>>str;
 
-    p = new char(strlen(str));
+    p = new char[strlen(str)];
     p = str;
 
     cout<<p<<endl;
@@ -20,7 +20,7 @@ int main(){
     cout<<&str[0]<<endl;
     cout<<p+1<<endl;
     
-    delete[] p; */
+    delete[] p;
    
 
     //for integer
