@@ -39,6 +39,7 @@ class Array{
 
         ~Array(){
             delete[] p;
+            cout<<"Detructing"<<endl;
         }
 };
 
