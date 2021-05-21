@@ -1,0 +1,82 @@
+#include <iostream>
+
+using namespace std;
+
+class Complex{
+    int x, y;
+    public:
+        Complex(){x = 0; y = 0;}
+        Complex(int x, int y){
+            this->x = x;
+            this->y = y;
+        }
+        Complex operator+(Complex);
+        Complex operator-();
+        Complex operator++();
+        Complex operator++(int);
+        void showValues();
+        
+};
+
+//binary operator overloading
+Complex Complex::operator+(Complex operand2){
+    Complex temp;
+    temp.x = x + operand2.x;
+    temp.y = y + operand2.y;
+
+    return temp;
+}
+
+//unary operator overloading
+Complex Complex::operator-(){
+    Complex temp;
+    temp.x = -x;
+    temp.y = -y;
+
+    return temp;
+}
+
+Complex Complex::operator++(){
+    Complex temp;
+
+    temp.x = ++x;
+    temp.y = ++y;
+
+    return temp;
+}
+
+Complex Complex::operator++(int){
+    Complex temp;
+
+    temp.x = x++;
+    temp.y = y++;
+
+    return temp;
+}
+
+void Complex::showValues(){
+    cout<<"x = "<<x<<" ... y = "<<y<<endl;
+}
+
+int main(){
+
+    Complex c1(2, 5), c2(10, 20), c3, c4, c5;
+
+    // c3 = c1.operator+(c2);
+    c3 = c1+c2; //binary operator overloading
+    c3.showValues();
+
+    // c4 = c1.operator-();
+    c4 = -c1; //unary operator overloading
+    c4.showValues();
+
+    //unary prefix and postfix operator overloading with increment and decrement
+    c5 = ++c3;
+    c5.showValues();
+
+    c5 = c3++;
+    c5.showValues();
+    c3.showValues();
+
+    return 0;
+}
