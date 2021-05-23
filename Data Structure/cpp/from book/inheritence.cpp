@@ -19,8 +19,9 @@ class Derived1 : public Base{
 class Derived2 : private Base{
     int y;
     public:
-        void sety(int y){this->y = y;}
+        void sety(int y, int z){this->y = y; setx(z);}
         int gety(){return y;}
+        int getz(){return getx();}
 };
 
 int main(){
@@ -31,8 +32,8 @@ int main(){
     cout<<d1.getx()<<" "<<d1.gety()<<endl;
 
     Derived2 d2;
-    d2.sety(100);
-    cout<<d2.gety()<<endl;
+    d2.sety(100, 200);
+    cout<<d2.gety()<<" "<<d2.getz()<<endl;
 
     return 0;
 }
