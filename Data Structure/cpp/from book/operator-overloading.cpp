@@ -15,6 +15,9 @@ class Complex{
         Complex operator++();
         Complex operator++(int);
 
+        //multiplication operator overloading with friend function
+        friend Complex operator*(Complex, Complex);
+
         //relational operator and logical operator
         bool operator==(Complex);
 
@@ -67,9 +70,18 @@ bool Complex::operator==(Complex operand){
     return ((x == operand.x) && (y == operand.y));
 }
 
+Complex operator*(Complex operand1, Complex operand2){
+    Complex temp;
+
+    temp.x = operand1.x * operand2.x;
+    temp.y = operand1.y * operand2.y;
+
+    return temp;
+}
+
 int main(){
 
-    Complex c1(2, 5), c2(10, 20), c3, c4, c5;
+    Complex c1(2, 5), c2(10, 20), c3, c4, c5, c6;
 
     // c3 = c1.operator+(c2);
     c3 = c1+c2; //binary operator overloading
@@ -91,5 +103,7 @@ int main(){
     //checking c5 and c3 equal or not by relational operator and logical operator overloading
     cout<<(c5 == c3)<<endl;
 
+    c6 = c1*c2;
+    c6.showValues();
     return 0;
 }
