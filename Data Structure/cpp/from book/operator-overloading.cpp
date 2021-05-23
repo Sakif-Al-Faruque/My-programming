@@ -14,6 +14,11 @@ class Complex{
         Complex operator-();
         Complex operator++();
         Complex operator++(int);
+
+        //relational operator and logical operator
+        bool operator==(Complex);
+
+        //for print result
         void showValues();
         
 };
@@ -58,6 +63,10 @@ void Complex::showValues(){
     cout<<"x = "<<x<<" ... y = "<<y<<endl;
 }
 
+bool Complex::operator==(Complex operand){
+    return ((x == operand.x) && (y == operand.y));
+}
+
 int main(){
 
     Complex c1(2, 5), c2(10, 20), c3, c4, c5;
@@ -75,8 +84,12 @@ int main(){
     c5.showValues();
 
     c5 = c3++;
+
     c5.showValues();
     c3.showValues();
+
+    //checking c5 and c3 equal or not by relational operator and logical operator overloading
+    cout<<(c5 == c3)<<endl;
 
     return 0;
 }
