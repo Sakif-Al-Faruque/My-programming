@@ -5,7 +5,7 @@ using namespace std;
 class Base{
     int x;
     protected:
-        int k;
+        int k, m;
     public:
         void setx(int x){this->x = x;}
         int getx(){return x;}
@@ -19,6 +19,9 @@ class Derived1 : public Base{
     public:
         void sety(int y){this->y = y;}
         int gety(){return y;}
+
+        void setm(int m){this->m = m;}
+        int getm(){return m;}        
 };
 
 class Derived2 : private Base{
@@ -41,7 +44,10 @@ int main(){
     d1.setx(10);
     d1.sety(20);
 
+    d1.setm(11);
+
     cout<<d1.getx()<<" "<<d1.gety()<<endl;
+    cout<<d1.getm()<<endl;
 
     Derived2 d2;
     d2.sety(100, 200);
