@@ -21,6 +21,9 @@ class Complex{
         //relational operator and logical operator
         bool operator==(Complex);
 
+        //assignment operator
+        Complex &operator=(Complex&);
+
         //for print result
         void showValues();
         
@@ -79,9 +82,16 @@ Complex operator*(Complex operand1, Complex operand2){
     return temp;
 }
 
+Complex &Complex::operator=(Complex &operand){
+    x = operand.x;
+    y = operand.y;
+
+    return *this;
+}
+
 int main(){
 
-    Complex c1(2, 5), c2(10, 20), c3, c4, c5, c6;
+    /* Complex c1(2, 5), c2(10, 20), c3, c4, c5, c6;
 
     // c3 = c1.operator+(c2);
     c3 = c1+c2; //binary operator overloading
@@ -104,6 +114,11 @@ int main(){
     cout<<(c5 == c3)<<endl;
 
     c6 = c1*c2;
-    c6.showValues();
+    c6.showValues(); */
+
+    Complex c7, c8(10, 20);
+    c7 = c8;
+    c7.showValues();
+    
     return 0;
 }
