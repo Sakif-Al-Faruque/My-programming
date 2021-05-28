@@ -1,4 +1,5 @@
 (function(){
+<<<<<<< HEAD
     const pictures = [
         "carbg-1",
         "carbg-2",
@@ -29,6 +30,33 @@
                 }
             }
             imgholder.style.backgroundImage = `url("img/${pictures[counter]}.jpg")`;
+=======
+    var counterValue = 0;
+
+    const buttons = document.querySelectorAll('.counter-btn');
+    const counter = document.getElementById('counter');
+
+    buttons.forEach(function(btn){
+        btn.addEventListener('click', function(event){
+            let currBtn = event.target;
+
+            //console.log(currBtn);
+            if(currBtn.classList.contains('prevBtn')){
+                counterValue--;
+            }else if (currBtn.classList.contains('nextBtn')){
+                counterValue++;
+            }
+            
+            if(counterValue === 0){
+                counter.style.color = '#061a00';
+            }else if(counterValue < 0){
+                counter.style.color = '#ff3300';
+            }else if(counterValue > 0){
+                counter.style.color = '#009933';
+            }
+
+            counter.textContent = counterValue;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         });
     });
 })();

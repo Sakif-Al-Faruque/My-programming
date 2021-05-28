@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root{
     --mainblue: #3db8ff;
     --mainwhite: #ebeef0;
@@ -27,3 +28,28 @@
 .btn-right{
     right: 0;
 }
+=======
+body{
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+ body .container{
+    border: 2px solid #fff;
+    height: 400px;
+    width: 400px;
+    margin-top: 100px;
+}
+
+#counter{
+    font-size: 100px;
+}
+
+.counter-btn{
+    background: darkblue;
+    color: white;
+    font-weight: bold;
+}
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
