@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -26,17 +27,22 @@ int main(){
     cout.unsetf(ios::uppercase | ios::showbase);
     cout<<88<<endl<<endl;
 
+    //special functions of streams
     cout.width(10);
     cout.fill('#');
     cout.setf(ios::left);
-    cout<<"Hello"<<endl;
+    cout<<"Hello"<<endl<<endl;
 
     cout.precision(6);
     cout.unsetf(ios::scientific);
     cout<<12.455565685487<<endl;
 
+    //manipulators
+    cout<<oct<<100<<hex<<100<<endl;
+    cout<<setw(10)<<setfill('%')<<200<<endl;
+
     cout<<endl<<endl;
-    showFlags();
+    showFlags(); //showing current output format
     return 0;
 }
 
