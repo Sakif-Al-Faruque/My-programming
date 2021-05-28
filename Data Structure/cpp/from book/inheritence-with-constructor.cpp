@@ -18,10 +18,18 @@ class Derived1 : public Base{
         void showJ(){cout<<j<<endl;}
 };
 
+class Derived2: public Base{
+    public:
+        Derived2(int j):Base(j){}
+};
+
 int main(){
     Derived1 d1(10);
     d1.showJ();
     d1.showN();
+
+    Derived2 d2(20);
+    d2.showN();
     
     return 0;
 }
