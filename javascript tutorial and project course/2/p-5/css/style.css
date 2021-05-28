@@ -1,0 +1,29 @@
+:root{
+    --mainblue: #3db8ff;
+    --mainwhite: #ebeef0;
+}
+
+.img-container{
+    background-color: transparent;
+    border: 10px solid var(--mainblue);
+    min-height: 60vh;
+    border-radius: 40px;
+    position: relative;
+    margin-top: 15%;
+    background-image: url("../img/carbg-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-container .btn{
+    color: var(--mainblue);
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+}
+.btn-left{
+    left: 0;
+}
+.btn-right{
+    right: 0;
+}
