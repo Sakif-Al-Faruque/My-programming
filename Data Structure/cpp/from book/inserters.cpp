@@ -4,10 +4,11 @@
 using namespace std;
 
 class Coord{
-    int a, b;
+    //int a, b;
     public:
+        int a, b;
         Coord(int a, int b);
-        friend ostream &operator<<(ostream &stream, Coord samp);
+        //friend ostream &operator<<(ostream &stream, Coord samp);
 };
 
 Coord::Coord(int a, int b){
