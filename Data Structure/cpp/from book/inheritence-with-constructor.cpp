@@ -23,6 +23,32 @@ class Derived2: public Base{
         Derived2(int j):Base(j){}
 };
 
+class Base1{
+    int i;
+    public:
+        Base1(int i){this->i = i;}
+        void showI(){cout<<"i = "<<i<<endl;}
+};
+
+class Base2{
+    int j;
+    public:
+        Base2(int j){this->j = j;}
+        void showJ(){cout<<"j = "<<j<<endl;}
+};
+
+class Derived: public Base1, public Base2{
+    int m, n;
+    public:
+        Derived(int m, int n):Base1(m), Base2(n){
+            this->m = m;
+            this->n = n;
+        }
+        void showMN(){
+            cout<<"m = "<<m<<" ... n = "<<n<<endl;
+        }
+};
+
 int main(){
     Derived1 d1(10);
     d1.showJ();
@@ -30,6 +56,11 @@ int main(){
 
     Derived2 d2(20);
     d2.showN();
+
+    Derived d(10, 20);
+    d.showI();
+    d.showJ();
+    d.showMN();
     
     return 0;
 }
