@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator{
+    flex: 0 0 95%;
+}
+
+.screen{
+    width: 100%;
+    font-size: 7rem;
+    background: rgb(42, 42, 71);
+    padding: .5rem;
+    color: white;
+    border: none;
+}
+
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+    transition: all .5 linear;
+}
+
+button{
+    flex: 0 0 25%;
+    font-size: 3rem;
+    transition: all 1s ease;
+}
+
+button:hover{
+    background: blue;
+}
+
+.btn-grey{
+    background: grey;
+}
+.btn-yellow{
+    background: rgb(235, 174, 62);
+}
+.btn-green{
+    background: green;
+}
+.btn-red{
+    background: red;
+}
+
