@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /*!
+<<<<<<< HEAD
+ * Bootstrap v5.0.1 (https://getbootstrap.com/)
+=======
  * Bootstrap v5.0.0 (https://getbootstrap.com/)
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -1921,6 +1925,10 @@ progress {
 }
 .table {
   --bs-table-bg: transparent;
+<<<<<<< HEAD
+  --bs-table-accent-bg: transparent;
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   --bs-table-striped-color: #212529;
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
   --bs-table-active-color: #212529;
@@ -2169,10 +2177,14 @@ progress {
 .form-control[type=file] {
   overflow: hidden;
 }
+<<<<<<< HEAD
+.form-control[type=file]:not(:disabled):not([readonly]) {
+=======
 .form-control[type=file]:not(:disabled):not(:-moz-read-only) {
   cursor: pointer;
 }
 .form-control[type=file]:not(:disabled):not(:read-only) {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   cursor: pointer;
 }
 .form-control:focus {
@@ -2193,11 +2205,15 @@ progress {
   color: #6c757d;
   opacity: 1;
 }
+<<<<<<< HEAD
+.form-control:disabled, .form-control[readonly] {
+=======
 .form-control:-moz-read-only {
   background-color: #e9ecef;
   opacity: 1;
 }
 .form-control:disabled, .form-control:read-only {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   background-color: #e9ecef;
   opacity: 1;
 }
@@ -2221,10 +2237,14 @@ progress {
     transition: none;
   }
 }
+<<<<<<< HEAD
+.form-control:hover:not(:disabled):not([readonly])::file-selector-button {
+=======
 .form-control:hover:not(:disabled):not(:-moz-read-only)::file-selector-button {
   background-color: #dde0e3;
 }
 .form-control:hover:not(:disabled):not(:read-only)::file-selector-button {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   background-color: #dde0e3;
 }
 .form-control::-webkit-file-upload-button {
@@ -2249,7 +2269,11 @@ progress {
     transition: none;
   }
 }
+<<<<<<< HEAD
+.form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+=======
 .form-control:hover:not(:disabled):not(:read-only)::-webkit-file-upload-button {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   background-color: #dde0e3;
 }
 
@@ -2322,10 +2346,14 @@ textarea.form-control-lg {
   height: auto;
   padding: 0.375rem;
 }
+<<<<<<< HEAD
+.form-control-color:not(:disabled):not([readonly]) {
+=======
 .form-control-color:not(:disabled):not(:-moz-read-only) {
   cursor: pointer;
 }
 .form-control-color:not(:disabled):not(:read-only) {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   cursor: pointer;
 }
 .form-control-color::-moz-color-swatch {
@@ -2804,6 +2832,14 @@ textarea.form-control-lg {
 .was-validated .input-group .form-control:valid, .input-group .form-control.is-valid,
 .was-validated .input-group .form-select:valid,
 .input-group .form-select.is-valid {
+<<<<<<< HEAD
+  z-index: 1;
+}
+.was-validated .input-group .form-control:valid:focus, .input-group .form-control.is-valid:focus,
+.was-validated .input-group .form-select:valid:focus,
+.input-group .form-select.is-valid:focus {
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   z-index: 3;
 }
 
@@ -2888,6 +2924,14 @@ textarea.form-control-lg {
 .was-validated .input-group .form-control:invalid, .input-group .form-control.is-invalid,
 .was-validated .input-group .form-select:invalid,
 .input-group .form-select.is-invalid {
+<<<<<<< HEAD
+  z-index: 2;
+}
+.was-validated .input-group .form-control:invalid:focus, .input-group .form-control.is-invalid:focus,
+.was-validated .input-group .form-select:invalid:focus,
+.input-group .form-select.is-invalid:focus {
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   z-index: 3;
 }
 
@@ -5203,6 +5247,8 @@ textarea.form-control-lg {
   word-wrap: break-word;
 }
 
+<<<<<<< HEAD
+=======
 .modal-open {
   overflow: hidden;
 }
@@ -5211,6 +5257,7 @@ textarea.form-control-lg {
   overflow-y: auto;
 }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 .modal {
   position: fixed;
   top: 0;
@@ -5219,7 +5266,12 @@ textarea.form-control-lg {
   display: none;
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
+  overflow-x: hidden;
+  overflow-y: auto;
+=======
   overflow: hidden;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   outline: 0;
 }
 

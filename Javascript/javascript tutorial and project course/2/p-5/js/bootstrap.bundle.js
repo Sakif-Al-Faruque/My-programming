@@ -1,5 +1,9 @@
 /*!
+<<<<<<< HEAD
+  * Bootstrap v5.0.1 (https://getbootstrap.com/)
+=======
   * Bootstrap v5.0.0 (https://getbootstrap.com/)
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -11,10 +15,89 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): dom/selector-engine.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+  const NODE_TEXT = 3;
+  const SelectorEngine = {
+    find(selector, element = document.documentElement) {
+      return [].concat(...Element.prototype.querySelectorAll.call(element, selector));
+    },
+
+    findOne(selector, element = document.documentElement) {
+      return Element.prototype.querySelector.call(element, selector);
+    },
+
+    children(element, selector) {
+      return [].concat(...element.children).filter(child => child.matches(selector));
+    },
+
+    parents(element, selector) {
+      const parents = [];
+      let ancestor = element.parentNode;
+
+      while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== NODE_TEXT) {
+        if (ancestor.matches(selector)) {
+          parents.push(ancestor);
+        }
+
+        ancestor = ancestor.parentNode;
+      }
+
+      return parents;
+    },
+
+    prev(element, selector) {
+      let previous = element.previousElementSibling;
+
+      while (previous) {
+        if (previous.matches(selector)) {
+          return [previous];
+        }
+
+        previous = previous.previousElementSibling;
+      }
+
+      return [];
+    },
+
+    next(element, selector) {
+      let next = element.nextElementSibling;
+
+      while (next) {
+        if (next.matches(selector)) {
+          return [next];
+        }
+
+        next = next.nextElementSibling;
+      }
+
+      return [];
+    }
+
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+
+=======
    * Bootstrap (v5.0.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   const MAX_UID = 1000000;
   const MILLISECONDS_MULTIPLIER = 1000;
   const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
@@ -107,7 +190,34 @@
     element.dispatchEvent(new Event(TRANSITION_END));
   };
 
+<<<<<<< HEAD
+  const isElement$1 = obj => {
+    if (!obj || typeof obj !== 'object') {
+      return false;
+    }
+
+    if (typeof obj.jquery !== 'undefined') {
+      obj = obj[0];
+    }
+
+    return typeof obj.nodeType !== 'undefined';
+  };
+
+  const getElement = obj => {
+    if (isElement$1(obj)) {
+      // it's a jQuery object or a node element
+      return obj.jquery ? obj[0] : obj;
+    }
+
+    if (typeof obj === 'string' && obj.length > 0) {
+      return SelectorEngine.findOne(obj);
+    }
+
+    return null;
+  };
+=======
   const isElement$1 = obj => (obj[0] || obj).nodeType;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
   const emulateTransitionEnd = (element, duration) => {
     let called = false;
@@ -218,12 +328,20 @@
 
   const isRTL = () => document.documentElement.dir === 'rtl';
 
+<<<<<<< HEAD
+  const defineJQueryPlugin = plugin => {
+=======
   const defineJQueryPlugin = (name, plugin) => {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     onDOMContentLoaded(() => {
       const $ = getjQuery();
       /* istanbul ignore if */
 
       if ($) {
+<<<<<<< HEAD
+        const name = plugin.NAME;
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         const JQUERY_NO_CONFLICT = $.fn[name];
         $.fn[name] = plugin.jQueryInterface;
         $.fn[name].Constructor = plugin;
@@ -244,7 +362,11 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): dom/data.js
+=======
    * Bootstrap (v5.0.0): dom/data.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -298,7 +420,11 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): dom/event-handler.js
+=======
    * Bootstrap (v5.0.0): dom/event-handler.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -587,7 +713,11 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): base-component.js
+=======
    * Bootstrap (v5.0.0): base-component.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -597,11 +727,19 @@
    * ------------------------------------------------------------------------
    */
 
+<<<<<<< HEAD
+  const VERSION = '5.0.1';
+
+  class BaseComponent {
+    constructor(element) {
+      element = getElement(element);
+=======
   const VERSION = '5.0.0';
 
   class BaseComponent {
     constructor(element) {
       element = typeof element === 'string' ? document.querySelector(element) : element;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       if (!element) {
         return;
@@ -613,8 +751,26 @@
 
     dispose() {
       Data.remove(this._element, this.constructor.DATA_KEY);
+<<<<<<< HEAD
+      EventHandler.off(this._element, this.constructor.EVENT_KEY);
+      Object.getOwnPropertyNames(this).forEach(propertyName => {
+        this[propertyName] = null;
+      });
+    }
+
+    _queueCallback(callback, element, isAnimated = true) {
+      if (!isAnimated) {
+        execute(callback);
+        return;
+      }
+
+      const transitionDuration = getTransitionDurationFromElement(element);
+      EventHandler.one(element, 'transitionend', () => execute(callback));
+      emulateTransitionEnd(element, transitionDuration);
+=======
       EventHandler.off(this._element, `.${this.constructor.DATA_KEY}`);
       this._element = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
     /** Static */
 
@@ -627,11 +783,30 @@
       return VERSION;
     }
 
+<<<<<<< HEAD
+    static get NAME() {
+      throw new Error('You have to implement the static method "NAME", for each component!');
+    }
+
+    static get DATA_KEY() {
+      return `bs.${this.NAME}`;
+    }
+
+    static get EVENT_KEY() {
+      return `.${this.DATA_KEY}`;
+    }
+
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   }
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): alert.js
+=======
    * Bootstrap (v5.0.0): alert.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -660,8 +835,13 @@
 
   class Alert extends BaseComponent {
     // Getters
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$c;
+=======
     static get DATA_KEY() {
       return DATA_KEY$b;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -688,6 +868,11 @@
 
     _removeElement(element) {
       element.classList.remove(CLASS_NAME_SHOW$9);
+<<<<<<< HEAD
+      const isAnimated = element.classList.contains(CLASS_NAME_FADE$6);
+
+      this._queueCallback(() => this._destroyElement(element), element, isAnimated);
+=======
 
       if (!element.classList.contains(CLASS_NAME_FADE$6)) {
         this._destroyElement(element);
@@ -698,6 +883,7 @@
       const transitionDuration = getTransitionDurationFromElement(element);
       EventHandler.one(element, 'transitionend', () => this._destroyElement(element));
       emulateTransitionEnd(element, transitionDuration);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     _destroyElement(element) {
@@ -749,11 +935,19 @@
    * add .Alert to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Alert);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): button.js
+=======
   defineJQueryPlugin(NAME$c, Alert);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): button.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -778,8 +972,13 @@
 
   class Button extends BaseComponent {
     // Getters
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$b;
+=======
     static get DATA_KEY() {
       return DATA_KEY$a;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -829,11 +1028,19 @@
    * add .Button to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Button);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): dom/manipulator.js
+=======
   defineJQueryPlugin(NAME$b, Button);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): dom/manipulator.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -907,6 +1114,9 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): carousel.js
+=======
    * Bootstrap (v5.0.0): dom/selector-engine.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
@@ -979,6 +1189,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): carousel.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -1079,8 +1290,13 @@
       return Default$9;
     }
 
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$a;
+=======
     static get DATA_KEY() {
       return DATA_KEY$9;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -1158,6 +1374,8 @@
       const order = index > activeIndex ? ORDER_NEXT : ORDER_PREV;
 
       this._slide(order, this._items[index]);
+<<<<<<< HEAD
+=======
     }
 
     dispose() {
@@ -1169,6 +1387,7 @@
       this._activeElement = null;
       this._indicatorsElement = null;
       super.dispose();
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Private
 
 
@@ -1397,17 +1616,40 @@
 
       this._activeElement = nextElement;
 
+<<<<<<< HEAD
+      const triggerSlidEvent = () => {
+        EventHandler.trigger(this._element, EVENT_SLID, {
+          relatedTarget: nextElement,
+          direction: eventDirectionName,
+          from: activeElementIndex,
+          to: nextElementIndex
+        });
+      };
+
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       if (this._element.classList.contains(CLASS_NAME_SLIDE)) {
         nextElement.classList.add(orderClassName);
         reflow(nextElement);
         activeElement.classList.add(directionalClassName);
         nextElement.classList.add(directionalClassName);
+<<<<<<< HEAD
+
+        const completeCallBack = () => {
+=======
         const transitionDuration = getTransitionDurationFromElement(activeElement);
         EventHandler.one(activeElement, 'transitionend', () => {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
           nextElement.classList.remove(directionalClassName, orderClassName);
           nextElement.classList.add(CLASS_NAME_ACTIVE$2);
           activeElement.classList.remove(CLASS_NAME_ACTIVE$2, orderClassName, directionalClassName);
           this._isSliding = false;
+<<<<<<< HEAD
+          setTimeout(triggerSlidEvent, 0);
+        };
+
+        this._queueCallback(completeCallBack, activeElement, true);
+=======
           setTimeout(() => {
             EventHandler.trigger(this._element, EVENT_SLID, {
               relatedTarget: nextElement,
@@ -1418,16 +1660,21 @@
           }, 0);
         });
         emulateTransitionEnd(activeElement, transitionDuration);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       } else {
         activeElement.classList.remove(CLASS_NAME_ACTIVE$2);
         nextElement.classList.add(CLASS_NAME_ACTIVE$2);
         this._isSliding = false;
+<<<<<<< HEAD
+        triggerSlidEvent();
+=======
         EventHandler.trigger(this._element, EVENT_SLID, {
           relatedTarget: nextElement,
           direction: eventDirectionName,
           from: activeElementIndex,
           to: nextElementIndex
         });
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       }
 
       if (isCycling) {
@@ -1546,11 +1793,19 @@
    * add .Carousel to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Carousel);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): collapse.js
+=======
   defineJQueryPlugin(NAME$a, Carousel);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): collapse.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -1627,8 +1882,13 @@
       return Default$8;
     }
 
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$9;
+=======
     static get DATA_KEY() {
       return DATA_KEY$8;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -1720,9 +1980,15 @@
 
       const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
       const scrollSize = `scroll${capitalizedDimension}`;
+<<<<<<< HEAD
+
+      this._queueCallback(complete, this._element, true);
+
+=======
       const transitionDuration = getTransitionDurationFromElement(this._element);
       EventHandler.one(this._element, 'transitionend', complete);
       emulateTransitionEnd(this._element, transitionDuration);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       this._element.style[dimension] = `${this._element[scrollSize]}px`;
     }
 
@@ -1773,13 +2039,20 @@
       };
 
       this._element.style[dimension] = '';
+<<<<<<< HEAD
+
+      this._queueCallback(complete, this._element, true);
+=======
       const transitionDuration = getTransitionDurationFromElement(this._element);
       EventHandler.one(this._element, 'transitionend', complete);
       emulateTransitionEnd(this._element, transitionDuration);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     setTransitioning(isTransitioning) {
       this._isTransitioning = isTransitioning;
+<<<<<<< HEAD
+=======
     }
 
     dispose() {
@@ -1788,6 +2061,7 @@
       this._parent = null;
       this._triggerArray = null;
       this._isTransitioning = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Private
 
 
@@ -1809,6 +2083,9 @@
       let {
         parent
       } = this._config;
+<<<<<<< HEAD
+      parent = getElement(parent);
+=======
 
       if (isElement$1(parent)) {
         // it's a jQuery object
@@ -1819,6 +2096,7 @@
         parent = SelectorEngine.findOne(parent);
       }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       const selector = `${SELECTOR_DATA_TOGGLE$4}[data-bs-parent="${parent}"]`;
       SelectorEngine.find(selector, parent).forEach(element => {
         const selected = getElementFromSelector(element);
@@ -1919,7 +2197,11 @@
    * add .Collapse to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Collapse);
+=======
   defineJQueryPlugin(NAME$9, Collapse);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
   var top = 'top';
   var bottom = 'bottom';
@@ -3677,7 +3959,11 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): dropdown.js
+=======
    * Bootstrap (v5.0.0): dropdown.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -3764,8 +4050,13 @@
       return DefaultType$7;
     }
 
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$8;
+=======
     static get DATA_KEY() {
       return DATA_KEY$7;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -3812,11 +4103,15 @@
         if (this._config.reference === 'parent') {
           referenceElement = parent;
         } else if (isElement$1(this._config.reference)) {
+<<<<<<< HEAD
+          referenceElement = getElement(this._config.reference);
+=======
           referenceElement = this._config.reference; // Check if it's jQuery element
 
           if (typeof this._config.reference.jquery !== 'undefined') {
             referenceElement = this._config.reference[0];
           }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         } else if (typeof this._config.reference === 'object') {
           referenceElement = this._config.reference;
         }
@@ -3863,12 +4158,17 @@
     }
 
     dispose() {
+<<<<<<< HEAD
+      if (this._popper) {
+        this._popper.destroy();
+=======
       this._menu = null;
 
       if (this._popper) {
         this._popper.destroy();
 
         this._popper = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       }
 
       super.dispose();
@@ -4054,6 +4354,10 @@
     }
 
     static clearMenus(event) {
+<<<<<<< HEAD
+      if (event && (event.button === RIGHT_MOUSE_BUTTON || event.type === 'keyup' && event.key !== TAB_KEY)) {
+        return;
+=======
       if (event) {
         if (event.button === RIGHT_MOUSE_BUTTON || event.type === 'keyup' && event.key !== TAB_KEY) {
           return;
@@ -4062,6 +4366,7 @@
         if (/input|select|option|textarea|form/i.test(event.target.tagName)) {
           return;
         }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       }
 
       const toggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE$3);
@@ -4087,10 +4392,17 @@
 
           if (composedPath.includes(context._element) || context._config.autoClose === 'inside' && !isMenuTarget || context._config.autoClose === 'outside' && isMenuTarget) {
             continue;
+<<<<<<< HEAD
+          } // Tab navigation through the dropdown menu or events from contained inputs shouldn't close the menu
+
+
+          if (context._menu.contains(event.target) && (event.type === 'keyup' && event.key === TAB_KEY || /input|select|option|textarea|form/i.test(event.target.tagName))) {
+=======
           } // Tab navigation through the dropdown menu shouldn't close the menu
 
 
           if (event.type === 'keyup' && event.key === TAB_KEY && context._menu.contains(event.target)) {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
             continue;
           }
 
@@ -4176,11 +4488,19 @@
    * add .Dropdown to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Dropdown);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): util/scrollBar.js
+=======
   defineJQueryPlugin(NAME$8, Dropdown);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): util/scrollBar.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4254,7 +4574,11 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): util/backdrop.js
+=======
    * Bootstrap (v5.0.0): util/backdrop.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4338,6 +4662,10 @@
       config = { ...Default$6,
         ...(typeof config === 'object' ? config : {})
       };
+<<<<<<< HEAD
+      config.rootElement = config.rootElement || document.body;
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       typeCheckConfig(NAME$7, config, DefaultType$6);
       return config;
     }
@@ -4382,7 +4710,11 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): modal.js
+=======
    * Bootstrap (v5.0.0): modal.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4412,7 +4744,11 @@
   const EVENT_HIDDEN$3 = `hidden${EVENT_KEY$6}`;
   const EVENT_SHOW$3 = `show${EVENT_KEY$6}`;
   const EVENT_SHOWN$3 = `shown${EVENT_KEY$6}`;
+<<<<<<< HEAD
+  const EVENT_FOCUSIN$2 = `focusin${EVENT_KEY$6}`;
+=======
   const EVENT_FOCUSIN$1 = `focusin${EVENT_KEY$6}`;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   const EVENT_RESIZE = `resize${EVENT_KEY$6}`;
   const EVENT_CLICK_DISMISS$2 = `click.dismiss${EVENT_KEY$6}`;
   const EVENT_KEYDOWN_DISMISS$1 = `keydown.dismiss${EVENT_KEY$6}`;
@@ -4449,8 +4785,13 @@
       return Default$5;
     }
 
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$6;
+=======
     static get DATA_KEY() {
       return DATA_KEY$6;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -4524,13 +4865,20 @@
 
       this._setResizeEvent();
 
+<<<<<<< HEAD
+      EventHandler.off(document, EVENT_FOCUSIN$2);
+=======
       EventHandler.off(document, EVENT_FOCUSIN$1);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       this._element.classList.remove(CLASS_NAME_SHOW$5);
 
       EventHandler.off(this._element, EVENT_CLICK_DISMISS$2);
       EventHandler.off(this._dialog, EVENT_MOUSEDOWN_DISMISS);
 
+<<<<<<< HEAD
+      this._queueCallback(() => this._hideModal(), this._element, isAnimated);
+=======
       if (isAnimated) {
         const transitionDuration = getTransitionDurationFromElement(this._element);
         EventHandler.one(this._element, 'transitionend', event => this._hideModal(event));
@@ -4538,10 +4886,17 @@
       } else {
         this._hideModal();
       }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     dispose() {
       [window, this._dialog].forEach(htmlElement => EventHandler.off(htmlElement, EVENT_KEY$6));
+<<<<<<< HEAD
+
+      this._backdrop.dispose();
+
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       super.dispose();
       /**
        * `document` has 2 events `EVENT_FOCUSIN` and `EVENT_CLICK_DATA_API`
@@ -4549,6 +4904,9 @@
        * It will remove `EVENT_CLICK_DATA_API` event that should remain
        */
 
+<<<<<<< HEAD
+      EventHandler.off(document, EVENT_FOCUSIN$2);
+=======
       EventHandler.off(document, EVENT_FOCUSIN$1);
       this._config = null;
       this._dialog = null;
@@ -4559,6 +4917,7 @@
       this._isShown = null;
       this._ignoreBackdropClick = null;
       this._isTransitioning = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     handleUpdate() {
@@ -4628,6 +4987,15 @@
         });
       };
 
+<<<<<<< HEAD
+      this._queueCallback(transitionComplete, this._dialog, isAnimated);
+    }
+
+    _enforceFocus() {
+      EventHandler.off(document, EVENT_FOCUSIN$2); // guard against infinite focus loop
+
+      EventHandler.on(document, EVENT_FOCUSIN$2, event => {
+=======
       if (isAnimated) {
         const transitionDuration = getTransitionDurationFromElement(this._dialog);
         EventHandler.one(this._dialog, 'transitionend', transitionComplete);
@@ -4641,6 +5009,7 @@
       EventHandler.off(document, EVENT_FOCUSIN$1); // guard against infinite focus loop
 
       EventHandler.on(document, EVENT_FOCUSIN$1, event => {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         if (document !== event.target && this._element !== event.target && !this._element.contains(event.target)) {
           this._element.focus();
         }
@@ -4824,11 +5193,19 @@
    * add .Modal to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Modal);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): offcanvas.js
+=======
   defineJQueryPlugin(NAME$6, Modal);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): offcanvas.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4860,7 +5237,11 @@
   const EVENT_SHOWN$2 = `shown${EVENT_KEY$5}`;
   const EVENT_HIDE$2 = `hide${EVENT_KEY$5}`;
   const EVENT_HIDDEN$2 = `hidden${EVENT_KEY$5}`;
+<<<<<<< HEAD
+  const EVENT_FOCUSIN$1 = `focusin${EVENT_KEY$5}`;
+=======
   const EVENT_FOCUSIN = `focusin${EVENT_KEY$5}`;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   const EVENT_CLICK_DATA_API$1 = `click${EVENT_KEY$5}${DATA_API_KEY$2}`;
   const EVENT_CLICK_DISMISS$1 = `click.dismiss${EVENT_KEY$5}`;
   const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$5}`;
@@ -4883,12 +5264,21 @@
     } // Getters
 
 
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$5;
+    }
+
+    static get Default() {
+      return Default$4;
+=======
     static get Default() {
       return Default$4;
     }
 
     static get DATA_KEY() {
       return DATA_KEY$5;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -4934,9 +5324,13 @@
         });
       };
 
+<<<<<<< HEAD
+      this._queueCallback(completeCallBack, this._element, true);
+=======
       const transitionDuration = getTransitionDurationFromElement(this._element);
       EventHandler.one(this._element, 'transitionend', completeCallBack);
       emulateTransitionEnd(this._element, transitionDuration);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     hide() {
@@ -4950,7 +5344,11 @@
         return;
       }
 
+<<<<<<< HEAD
+      EventHandler.off(document, EVENT_FOCUSIN$1);
+=======
       EventHandler.off(document, EVENT_FOCUSIN);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       this._element.blur();
 
@@ -4976,18 +5374,26 @@
         EventHandler.trigger(this._element, EVENT_HIDDEN$2);
       };
 
+<<<<<<< HEAD
+      this._queueCallback(completeCallback, this._element, true);
+=======
       const transitionDuration = getTransitionDurationFromElement(this._element);
       EventHandler.one(this._element, 'transitionend', completeCallback);
       emulateTransitionEnd(this._element, transitionDuration);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     dispose() {
       this._backdrop.dispose();
 
       super.dispose();
+<<<<<<< HEAD
+      EventHandler.off(document, EVENT_FOCUSIN$1);
+=======
       EventHandler.off(document, EVENT_FOCUSIN);
       this._config = null;
       this._backdrop = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Private
 
 
@@ -5010,9 +5416,15 @@
     }
 
     _enforceFocusOnElement(element) {
+<<<<<<< HEAD
+      EventHandler.off(document, EVENT_FOCUSIN$1); // guard against infinite focus loop
+
+      EventHandler.on(document, EVENT_FOCUSIN$1, event => {
+=======
       EventHandler.off(document, EVENT_FOCUSIN); // guard against infinite focus loop
 
       EventHandler.on(document, EVENT_FOCUSIN, event => {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         if (document !== event.target && element !== event.target && !element.contains(event.target)) {
           element.focus();
         }
@@ -5090,11 +5502,19 @@
    * ------------------------------------------------------------------------
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Offcanvas);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): util/sanitizer.js
+=======
   defineJQueryPlugin(NAME$5, Offcanvas);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): util/sanitizer.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -5207,7 +5627,11 @@
 
   /**
    * --------------------------------------------------------------------------
+<<<<<<< HEAD
+   * Bootstrap (v5.0.1): tooltip.js
+=======
    * Bootstrap (v5.0.0): tooltip.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -5310,7 +5734,11 @@
       this._activeTrigger = {};
       this._popper = null; // Protected
 
+<<<<<<< HEAD
+      this._config = this._getConfig(config);
+=======
       this.config = this._getConfig(config);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       this.tip = null;
 
       this._setListeners();
@@ -5325,18 +5753,24 @@
       return NAME$4;
     }
 
+<<<<<<< HEAD
+=======
     static get DATA_KEY() {
       return DATA_KEY$4;
     }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     static get Event() {
       return Event$2;
     }
 
+<<<<<<< HEAD
+=======
     static get EVENT_KEY() {
       return EVENT_KEY$4;
     }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     static get DefaultType() {
       return DefaultType$3;
     } // Public
@@ -5388,18 +5822,24 @@
         this.tip.parentNode.removeChild(this.tip);
       }
 
+<<<<<<< HEAD
+=======
       this._isEnabled = null;
       this._timeout = null;
       this._hoverState = null;
       this._activeTrigger = null;
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       if (this._popper) {
         this._popper.destroy();
       }
 
+<<<<<<< HEAD
+=======
       this._popper = null;
       this.config = null;
       this.tip = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       super.dispose();
     }
 
@@ -5428,18 +5868,32 @@
 
       this.setContent();
 
+<<<<<<< HEAD
+      if (this._config.animation) {
+        tip.classList.add(CLASS_NAME_FADE$3);
+      }
+
+      const placement = typeof this._config.placement === 'function' ? this._config.placement.call(this, tip, this._element) : this._config.placement;
+=======
       if (this.config.animation) {
         tip.classList.add(CLASS_NAME_FADE$3);
       }
 
       const placement = typeof this.config.placement === 'function' ? this.config.placement.call(this, tip, this._element) : this.config.placement;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       const attachment = this._getAttachment(placement);
 
       this._addAttachmentClass(attachment);
 
+<<<<<<< HEAD
+      const {
+        container
+      } = this._config;
+=======
       const container = this._getContainer();
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       Data.set(tip, this.constructor.DATA_KEY, this);
 
       if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
@@ -5454,7 +5908,11 @@
       }
 
       tip.classList.add(CLASS_NAME_SHOW$3);
+<<<<<<< HEAD
+      const customClass = typeof this._config.customClass === 'function' ? this._config.customClass() : this._config.customClass;
+=======
       const customClass = typeof this.config.customClass === 'function' ? this.config.customClass() : this.config.customClass;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       if (customClass) {
         tip.classList.add(...customClass.split(' '));
@@ -5480,6 +5938,11 @@
         }
       };
 
+<<<<<<< HEAD
+      const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE$3);
+
+      this._queueCallback(complete, this.tip, isAnimated);
+=======
       if (this.tip.classList.contains(CLASS_NAME_FADE$3)) {
         const transitionDuration = getTransitionDurationFromElement(this.tip);
         EventHandler.one(this.tip, 'transitionend', complete);
@@ -5487,6 +5950,7 @@
       } else {
         complete();
       }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     hide() {
@@ -5534,6 +5998,11 @@
       this._activeTrigger[TRIGGER_CLICK] = false;
       this._activeTrigger[TRIGGER_FOCUS] = false;
       this._activeTrigger[TRIGGER_HOVER] = false;
+<<<<<<< HEAD
+      const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE$3);
+
+      this._queueCallback(complete, this.tip, isAnimated);
+=======
 
       if (this.tip.classList.contains(CLASS_NAME_FADE$3)) {
         const transitionDuration = getTransitionDurationFromElement(tip);
@@ -5542,6 +6011,7 @@
       } else {
         complete();
       }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       this._hoverState = '';
     }
@@ -5563,7 +6033,11 @@
       }
 
       const element = document.createElement('div');
+<<<<<<< HEAD
+      element.innerHTML = this._config.template;
+=======
       element.innerHTML = this.config.template;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       this.tip = element.children[0];
       return this.tip;
     }
@@ -5579,6 +6053,12 @@
         return;
       }
 
+<<<<<<< HEAD
+      if (isElement$1(content)) {
+        content = getElement(content); // content is a DOM node or a jQuery
+
+        if (this._config.html) {
+=======
       if (typeof content === 'object' && isElement$1(content)) {
         if (content.jquery) {
           content = content[0];
@@ -5586,6 +6066,7 @@
 
 
         if (this.config.html) {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
           if (content.parentNode !== element) {
             element.innerHTML = '';
             element.appendChild(content);
@@ -5597,9 +6078,15 @@
         return;
       }
 
+<<<<<<< HEAD
+      if (this._config.html) {
+        if (this._config.sanitize) {
+          content = sanitizeHtml(content, this._config.allowList, this._config.sanitizeFn);
+=======
       if (this.config.html) {
         if (this.config.sanitize) {
           content = sanitizeHtml(content, this.config.allowList, this.config.sanitizeFn);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         }
 
         element.innerHTML = content;
@@ -5612,7 +6099,11 @@
       let title = this._element.getAttribute('data-bs-original-title');
 
       if (!title) {
+<<<<<<< HEAD
+        title = typeof this._config.title === 'function' ? this._config.title.call(this._element) : this._config.title;
+=======
         title = typeof this.config.title === 'function' ? this.config.title.call(this._element) : this.config.title;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       }
 
       return title;
@@ -5646,7 +6137,11 @@
     _getOffset() {
       const {
         offset
+<<<<<<< HEAD
+      } = this._config;
+=======
       } = this.config;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       if (typeof offset === 'string') {
         return offset.split(',').map(val => Number.parseInt(val, 10));
@@ -5665,7 +6160,11 @@
         modifiers: [{
           name: 'flip',
           options: {
+<<<<<<< HEAD
+            fallbackPlacements: this._config.fallbackPlacements
+=======
             fallbackPlacements: this.config.fallbackPlacements
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
           }
         }, {
           name: 'offset',
@@ -5675,7 +6174,11 @@
         }, {
           name: 'preventOverflow',
           options: {
+<<<<<<< HEAD
+            boundary: this._config.boundary
+=======
             boundary: this.config.boundary
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
           }
         }, {
           name: 'arrow',
@@ -5695,7 +6198,11 @@
         }
       };
       return { ...defaultBsPopperConfig,
+<<<<<<< HEAD
+        ...(typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig)
+=======
         ...(typeof this.config.popperConfig === 'function' ? this.config.popperConfig(defaultBsPopperConfig) : this.config.popperConfig)
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       };
     }
 
@@ -5703,6 +6210,8 @@
       this.getTipElement().classList.add(`${CLASS_PREFIX$1}-${this.updateAttachment(attachment)}`);
     }
 
+<<<<<<< HEAD
+=======
     _getContainer() {
       if (this.config.container === false) {
         return document.body;
@@ -5715,11 +6224,24 @@
       return SelectorEngine.findOne(this.config.container);
     }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     _getAttachment(placement) {
       return AttachmentMap[placement.toUpperCase()];
     }
 
     _setListeners() {
+<<<<<<< HEAD
+      const triggers = this._config.trigger.split(' ');
+
+      triggers.forEach(trigger => {
+        if (trigger === 'click') {
+          EventHandler.on(this._element, this.constructor.Event.CLICK, this._config.selector, event => this.toggle(event));
+        } else if (trigger !== TRIGGER_MANUAL) {
+          const eventIn = trigger === TRIGGER_HOVER ? this.constructor.Event.MOUSEENTER : this.constructor.Event.FOCUSIN;
+          const eventOut = trigger === TRIGGER_HOVER ? this.constructor.Event.MOUSELEAVE : this.constructor.Event.FOCUSOUT;
+          EventHandler.on(this._element, eventIn, this._config.selector, event => this._enter(event));
+          EventHandler.on(this._element, eventOut, this._config.selector, event => this._leave(event));
+=======
       const triggers = this.config.trigger.split(' ');
       triggers.forEach(trigger => {
         if (trigger === 'click') {
@@ -5729,6 +6251,7 @@
           const eventOut = trigger === TRIGGER_HOVER ? this.constructor.Event.MOUSELEAVE : this.constructor.Event.FOCUSOUT;
           EventHandler.on(this._element, eventIn, this.config.selector, event => this._enter(event));
           EventHandler.on(this._element, eventOut, this.config.selector, event => this._leave(event));
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         }
       });
 
@@ -5740,8 +6263,13 @@
 
       EventHandler.on(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler);
 
+<<<<<<< HEAD
+      if (this._config.selector) {
+        this._config = { ...this._config,
+=======
       if (this.config.selector) {
         this.config = { ...this.config,
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
           trigger: 'manual',
           selector: ''
         };
@@ -5781,7 +6309,11 @@
       clearTimeout(context._timeout);
       context._hoverState = HOVER_STATE_SHOW;
 
+<<<<<<< HEAD
+      if (!context._config.delay || !context._config.delay.show) {
+=======
       if (!context.config.delay || !context.config.delay.show) {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         context.show();
         return;
       }
@@ -5790,7 +6322,11 @@
         if (context._hoverState === HOVER_STATE_SHOW) {
           context.show();
         }
+<<<<<<< HEAD
+      }, context._config.delay.show);
+=======
       }, context.config.delay.show);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     _leave(event, context) {
@@ -5807,7 +6343,11 @@
       clearTimeout(context._timeout);
       context._hoverState = HOVER_STATE_OUT;
 
+<<<<<<< HEAD
+      if (!context._config.delay || !context._config.delay.hide) {
+=======
       if (!context.config.delay || !context.config.delay.hide) {
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
         context.hide();
         return;
       }
@@ -5816,7 +6356,11 @@
         if (context._hoverState === HOVER_STATE_OUT) {
           context.hide();
         }
+<<<<<<< HEAD
+      }, context._config.delay.hide);
+=======
       }, context.config.delay.hide);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     _isWithActiveTrigger() {
@@ -5836,15 +6380,22 @@
           delete dataAttributes[dataAttr];
         }
       });
+<<<<<<< HEAD
+=======
 
       if (config && typeof config.container === 'object' && config.container.jquery) {
         config.container = config.container[0];
       }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       config = { ...this.constructor.Default,
         ...dataAttributes,
         ...(typeof config === 'object' && config ? config : {})
       };
+<<<<<<< HEAD
+      config.container = config.container === false ? document.body : getElement(config.container);
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       if (typeof config.delay === 'number') {
         config.delay = {
@@ -5873,10 +6424,17 @@
     _getDelegateConfig() {
       const config = {};
 
+<<<<<<< HEAD
+      if (this._config) {
+        for (const key in this._config) {
+          if (this.constructor.Default[key] !== this._config[key]) {
+            config[key] = this._config[key];
+=======
       if (this.config) {
         for (const key in this.config) {
           if (this.constructor.Default[key] !== this.config[key]) {
             config[key] = this.config[key];
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
           }
         }
       }
@@ -5943,11 +6501,19 @@
    */
 
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Tooltip);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): popover.js
+=======
   defineJQueryPlugin(NAME$4, Tooltip);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): popover.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -6004,18 +6570,24 @@
       return NAME$3;
     }
 
+<<<<<<< HEAD
+=======
     static get DATA_KEY() {
       return DATA_KEY$3;
     }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     static get Event() {
       return Event$1;
     }
 
+<<<<<<< HEAD
+=======
     static get EVENT_KEY() {
       return EVENT_KEY$3;
     }
 
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     static get DefaultType() {
       return DefaultType$2;
     } // Overrides
@@ -6046,7 +6618,11 @@
     }
 
     _getContent() {
+<<<<<<< HEAD
+      return this._element.getAttribute('data-bs-content') || this._config.content;
+=======
       return this._element.getAttribute('data-bs-content') || this.config.content;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     _cleanTipClass() {
@@ -6093,11 +6669,19 @@
    */
 
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Popover);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): scrollspy.js
+=======
   defineJQueryPlugin(NAME$3, Popover);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): scrollspy.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -6162,8 +6746,13 @@
       return Default$1;
     }
 
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$2;
+=======
     static get DATA_KEY() {
       return DATA_KEY$2;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -6196,6 +6785,10 @@
     }
 
     dispose() {
+<<<<<<< HEAD
+      EventHandler.off(this._scrollElement, EVENT_KEY$2);
+      super.dispose();
+=======
       super.dispose();
       EventHandler.off(this._scrollElement, EVENT_KEY$2);
       this._scrollElement = null;
@@ -6205,6 +6798,7 @@
       this._targets = null;
       this._activeTarget = null;
       this._scrollHeight = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Private
 
 
@@ -6351,11 +6945,19 @@
    * add .ScrollSpy to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(ScrollSpy);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): tab.js
+=======
   defineJQueryPlugin(NAME$2, ScrollSpy);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): tab.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -6393,8 +6995,13 @@
 
   class Tab extends BaseComponent {
     // Getters
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME$1;
+=======
     static get DATA_KEY() {
       return DATA_KEY$1;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -6452,10 +7059,16 @@
       const complete = () => this._transitionComplete(element, active, callback);
 
       if (active && isTransitioning) {
+<<<<<<< HEAD
+        active.classList.remove(CLASS_NAME_SHOW$1);
+
+        this._queueCallback(complete, element, true);
+=======
         const transitionDuration = getTransitionDurationFromElement(active);
         active.classList.remove(CLASS_NAME_SHOW$1);
         EventHandler.one(active, 'transitionend', complete);
         emulateTransitionEnd(active, transitionDuration);
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       } else {
         complete();
       }
@@ -6550,11 +7163,19 @@
    * add .Tab to jQuery only if jQuery is present
    */
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Tab);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): toast.js
+=======
   defineJQueryPlugin(NAME$1, Tab);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): toast.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -6568,6 +7189,13 @@
   const DATA_KEY = 'bs.toast';
   const EVENT_KEY = `.${DATA_KEY}`;
   const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY}`;
+<<<<<<< HEAD
+  const EVENT_MOUSEOVER = `mouseover${EVENT_KEY}`;
+  const EVENT_MOUSEOUT = `mouseout${EVENT_KEY}`;
+  const EVENT_FOCUSIN = `focusin${EVENT_KEY}`;
+  const EVENT_FOCUSOUT = `focusout${EVENT_KEY}`;
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
   const EVENT_HIDE = `hide${EVENT_KEY}`;
   const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
   const EVENT_SHOW = `show${EVENT_KEY}`;
@@ -6598,6 +7226,11 @@
       super(element);
       this._config = this._getConfig(config);
       this._timeout = null;
+<<<<<<< HEAD
+      this._hasMouseInteraction = false;
+      this._hasKeyboardInteraction = false;
+=======
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
 
       this._setListeners();
     } // Getters
@@ -6611,8 +7244,13 @@
       return Default;
     }
 
+<<<<<<< HEAD
+    static get NAME() {
+      return NAME;
+=======
     static get DATA_KEY() {
       return DATA_KEY;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Public
 
 
@@ -6636,11 +7274,15 @@
 
         EventHandler.trigger(this._element, EVENT_SHOWN);
 
+<<<<<<< HEAD
+        this._maybeScheduleHide();
+=======
         if (this._config.autohide) {
           this._timeout = setTimeout(() => {
             this.hide();
           }, this._config.delay);
         }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
       };
 
       this._element.classList.remove(CLASS_NAME_HIDE);
@@ -6649,6 +7291,9 @@
 
       this._element.classList.add(CLASS_NAME_SHOWING);
 
+<<<<<<< HEAD
+      this._queueCallback(complete, this._element, this._config.animation);
+=======
       if (this._config.animation) {
         const transitionDuration = getTransitionDurationFromElement(this._element);
         EventHandler.one(this._element, 'transitionend', complete);
@@ -6656,6 +7301,7 @@
       } else {
         complete();
       }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     hide() {
@@ -6677,6 +7323,9 @@
 
       this._element.classList.remove(CLASS_NAME_SHOW);
 
+<<<<<<< HEAD
+      this._queueCallback(complete, this._element, this._config.animation);
+=======
       if (this._config.animation) {
         const transitionDuration = getTransitionDurationFromElement(this._element);
         EventHandler.one(this._element, 'transitionend', complete);
@@ -6684,6 +7333,7 @@
       } else {
         complete();
       }
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     dispose() {
@@ -6694,7 +7344,10 @@
       }
 
       super.dispose();
+<<<<<<< HEAD
+=======
       this._config = null;
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     } // Private
 
 
@@ -6707,8 +7360,59 @@
       return config;
     }
 
+<<<<<<< HEAD
+    _maybeScheduleHide() {
+      if (!this._config.autohide) {
+        return;
+      }
+
+      if (this._hasMouseInteraction || this._hasKeyboardInteraction) {
+        return;
+      }
+
+      this._timeout = setTimeout(() => {
+        this.hide();
+      }, this._config.delay);
+    }
+
+    _onInteraction(event, isInteracting) {
+      switch (event.type) {
+        case 'mouseover':
+        case 'mouseout':
+          this._hasMouseInteraction = isInteracting;
+          break;
+
+        case 'focusin':
+        case 'focusout':
+          this._hasKeyboardInteraction = isInteracting;
+          break;
+      }
+
+      if (isInteracting) {
+        this._clearTimeout();
+
+        return;
+      }
+
+      const nextElement = event.relatedTarget;
+
+      if (this._element === nextElement || this._element.contains(nextElement)) {
+        return;
+      }
+
+      this._maybeScheduleHide();
+    }
+
     _setListeners() {
       EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, () => this.hide());
+      EventHandler.on(this._element, EVENT_MOUSEOVER, event => this._onInteraction(event, true));
+      EventHandler.on(this._element, EVENT_MOUSEOUT, event => this._onInteraction(event, false));
+      EventHandler.on(this._element, EVENT_FOCUSIN, event => this._onInteraction(event, true));
+      EventHandler.on(this._element, EVENT_FOCUSOUT, event => this._onInteraction(event, false));
+=======
+    _setListeners() {
+      EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, () => this.hide());
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
     }
 
     _clearTimeout() {
@@ -6746,11 +7450,19 @@
    */
 
 
+<<<<<<< HEAD
+  defineJQueryPlugin(Toast);
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.1): index.umd.js
+=======
   defineJQueryPlugin(NAME, Toast);
 
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0): index.umd.js
+>>>>>>> 0b03b1e4b754ec1ba53aa4d93d7de5d35036dc29
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
