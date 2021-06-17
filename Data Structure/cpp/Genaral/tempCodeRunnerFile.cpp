@@ -1,5 +1,3 @@
-else{
-            int remainWeight = capacity - currentWeight;
-            finalValue += (arr[i].value*(double)(remainWeight/arr[i].weight));
-            break;
-        }
+for(int i=0; i<n; i++){
+        cout<<a[i]<<endl;
+    }
