@@ -54,7 +54,7 @@ void minCount(int money){
 }
 
 int main(){
-    int x = 15700;
+    int x = 15715;
     minCount(x);
     return 0;
 }

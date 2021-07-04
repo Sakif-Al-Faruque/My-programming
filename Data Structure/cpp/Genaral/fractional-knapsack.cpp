@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cstring>
 using namespace std;
 
 struct Item{
@@ -57,7 +57,6 @@ double knapsackFinalValue(struct Item arr[], int n, int capacity){
         }
     }
     return finalValue;
-
 }
 
 int main(){
